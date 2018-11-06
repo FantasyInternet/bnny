@@ -1,2 +1,5 @@
+include "../index.poem"
+include "../bnny.poem"
+
 export "sum" sum a b
   return a + b

@@ -4,8 +4,11 @@
   "description": "A WebAssembly assembler written in Poetry",
   "main": "index.js",
   "scripts": {
-    "build": "poetry ./bnny.poem -b ./bnny.wasm",
+    "build": "poetry ./index.poem -b ./index.wasm",
     "test": "poetry ./test/test.poem -t ./test/test.wast -b ./test/test.wasm && mocha"
+  },
+  "bin": {
+    "bnny": "./cli.js"
   },
   "repository": {
     "type": "git",
@@ -17,7 +20,9 @@
     "url": "https://github.com/FantasyInternet/bnny/issues"
   },
   "homepage": "https://github.com/FantasyInternet/bnny#readme",
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^2.19.0"
+  },
   "devDependencies": {
     "mocha": "^5.2.0",
     "poetry-compiler": "^0.35.0"

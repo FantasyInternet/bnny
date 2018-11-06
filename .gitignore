@@ -1,4 +1,4 @@
 node_modules/
 test/*.wasm
 test/*.wast
-bnny.wasm
+index.wasm

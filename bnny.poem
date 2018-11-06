@@ -1,4 +1,4 @@
 ~ BnNY ~ A WebAssembly assembler written in Poetry
 
 func assemble wast
-  
+  return string_upper wast
