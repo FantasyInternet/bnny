@@ -1,21 +1,26 @@
 const fs = require("fs")
 const assert = require("assert")
-describe('Array', function () {
-  describe('#indexOf()', function () {
-    it('should return -1 when the value is not present', function () {
-      assert.equal([1, 2, 3].indexOf(4), -1)
-    })
-  })
-})
-describe("BnNY", () => {
-  let bnny
-  it("instantiates", async () => {
-    bnny = await WebAssembly.instantiate(fs.readFileSync("./test/test.wasm"))
-    bnny = bnny.instance.exports
-  })
-  describe("sum", () => {
-    it("should add two numbers together and return the sum", () => {
-      assert.equal(bnny.sum(2, 3), 5)
-    })
+const bnny = require("../index.js")
+
+describe("BnNY", function () {
+  this.timeout(32 * 1024)
+  describe("assemble", function () {
+    const examples = "./test/examples/"
+    let files = fs.readdirSync(examples)
+
+    for (const file of files) {
+      if (file.includes(".wast")) {
+        it(file, async function () {
+          let target
+          let result = "" + new Buffer(await bnny(fs.readFileSync(examples + file)))
+          try {
+            target = fs.readFileSync(examples + file.replace(".wast", ".json"))
+          } catch (error) {
+            fs.writeFileSync(examples + file.replace(".wast", ".json"), result)
+          }
+          assert.equal(result, target)
+        })
+      }
+    }
   })
 })

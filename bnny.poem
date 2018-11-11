@@ -1,4 +1,43 @@
 ~ BnNY ~ A WebAssembly assembler written in Poetry
 
+var src
+var pos
+
 func assemble wast
-  return string_upper wast
+  src = wast
+  pos = 0
+  var tokens = array
+  var token = read_token
+  while token
+    array_push tokens token
+    token = read_token
+  return json_encode tokens
+
+func is_eof
+  return pos >= (size_of src)
+
+func read_char
+  var char = ""+binary_slice src pos 1
+  pos++
+  return char
+
+func peek_char
+  return ""+binary_slice src pos 1
+
+func read_token
+  var token = ""+""
+  var char = peek_char
+  ~ skip whitespace
+  while (char_code char) <= 32 && false == is_eof
+    read_char
+    char = peek_char
+  if char == "("
+    token = read_char
+  elsif char == ")"
+    token = read_char
+  else
+    while (char_code char) > 32 && false == is_eof
+      binary_write token (size_of token) char
+      pos++
+      char = peek_char
+  return token

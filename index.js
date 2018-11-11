@@ -20,12 +20,16 @@ const imports = {
     },
     "sendOutput": () => {
       output = bufferStack.pop()
+    },
+    "sendError": () => {
+      error = bufferStack.pop()
     }
   }
 }
 let bufferStack = []
 let input = ""
 let output
+let error
 let bnny = WebAssembly.instantiate(fs.readFileSync("./index.wasm"), imports)
 bnny.then((result) => {
   bnny = result.instance.exports
