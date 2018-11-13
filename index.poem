@@ -4,6 +4,7 @@ import "env" "popToMemory"    _pop_to_memory 1
 import "env" "log"            _log 0
 import "env" "getInput"       _get_input 0 1
 import "env" "sendOutput"     _send_output 0
+import "env" "sendError"      _send_error 0
 
 include "./bnny.poem" bnny\
 
@@ -20,6 +21,11 @@ func send_output data
   _push_from_memory (address_of data) (size_of data)
   _send_output
 
+func send_error data
+  _push_from_memory (address_of data) (size_of data)
+  _send_error
+
 export "init" init
   send_output (bnny\assemble (get_input))
-
+  if bnny\error
+    send_error (bnny\error)

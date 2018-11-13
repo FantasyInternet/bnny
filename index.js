@@ -39,6 +39,7 @@ async function assemble(wast, options = {}) {
   if (!bnny.init) await bnny
   input = wast
   bnny.init()
+  if (error) throw error
   return output
 }
 module.exports = assemble
