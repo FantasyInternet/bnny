@@ -27,9 +27,9 @@ func assemble wast
   src = wast
   var tokens = array
   var token = read_token
-  while token
-    array_push tokens token
+  while token != "("
     token = read_token
+  tokens = read_parens
   if error
     return null
   else
@@ -54,7 +54,7 @@ func peek_char
   return ""+binary_slice src pos 1
 
 func read_token
-  var token = ""+binary_string 0
+  var token
   var char = peek_char
   ~ skip whitespace
   while (char_code char) <= 0x20 && false == is_eof
@@ -62,11 +62,47 @@ func read_token
     char = peek_char
   if char == "("
     token = read_char
+    char = peek_char
+    if char == ";"
+      token = char
+      while (binary_search token ";)") == null && (false == is_eof)
+        char = read_char
+        binary_write token (size_of token) char
   elsif char == ")"
     token = read_char
+  elsif char == "\""
+    token = read_char
+    char = read_char
+    while char != "\"" && (false == is_eof)
+      binary_write token (size_of token) char
+      if char == "\\"
+        char = read_char
+        binary_write token (size_of token) char
+      char = read_char
+    binary_write token (size_of token) char
+  elsif char == ";"
+    token = read_char
+    char = peek_char
+    if char == ";"
+      while char != "\n" && (false == is_eof)
+        char = read_char
+        binary_write token (size_of token) char
   else
-    while (char_code char) > 32 && false == is_eof
+    token = ""+binary
+    var illegals = "();\""
+    while (char_code char) > 0x20 && (false == is_eof) && (binary_search illegals char) == null
       binary_write token (size_of token) char
       pos++
       char = peek_char
   return token
+
+func read_parens
+  var out = array
+  var token = read_token
+  while token && token != ")"
+    if token == "("
+      array_push out read_parens
+    else
+      array_push out token
+    token = read_token
+  return out

@@ -1,3 +1,4 @@
+(module 
 ;; general value functions
 (func $address_of (param $value i32) (result i32)
   (call $-integer_u (call $-offset (get_local $value)))
@@ -1003,4 +1004,5 @@
   (br 0)))
   (set_global $~pos (i32.sub (get_global $~pos) (i32.const 1)))
   (get_local $char)
+)
 )

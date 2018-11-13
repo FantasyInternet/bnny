@@ -1,4 +1,5 @@
-;; memory management
+(module
+  ;; memory management
 (global $-totmem (mut i32) (i32.const 0))
 (func $-initruntime
   (set_global $-totmem (i32.mul (i32.const 65536) (current_memory)))
@@ -1147,4 +1148,5 @@
       (call $-resize (get_local $objId) (i32.sub (call $-len (get_local $objId)) (i32.const 8)))
     ))
   ))
+)
 )

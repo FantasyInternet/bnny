@@ -22,7 +22,7 @@ const imports = {
       output = bufferStack.pop()
     },
     "sendError": () => {
-      error = bufferStack.pop()
+      error = "" + new Buffer(bufferStack.pop())
     }
   }
 }
@@ -39,6 +39,7 @@ async function assemble(wast, options = {}) {
   if (!bnny.init) await bnny
   input = wast
   bnny.init()
+  console.log("Memory:", bnny.memory.buffer.byteLength / (1024 * 1024), "MiB")
   if (error) throw error
   return output
 }

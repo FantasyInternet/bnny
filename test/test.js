@@ -12,13 +12,13 @@ describe("BnNY", function () {
       if (file.includes(".wast")) {
         it(file, async function () {
           let target
-          let result = "" + new Buffer(await bnny(fs.readFileSync(examples + file)))
+          let result = JSON.parse("" + new Buffer(await bnny(fs.readFileSync(examples + file))))
           try {
-            target = fs.readFileSync(examples + file.replace(".wast", ".json"))
+            target = JSON.parse("" + fs.readFileSync(examples + file.replace(".wast", ".json")))
           } catch (error) {
-            fs.writeFileSync(examples + file.replace(".wast", ".json"), result)
+            fs.writeFileSync(examples + file.replace(".wast", ".json"), JSON.stringify(result))
           }
-          assert.equal(result, target)
+          assert.equal(JSON.stringify(result), JSON.stringify(target))
         })
       }
     }
