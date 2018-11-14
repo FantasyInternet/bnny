@@ -28,4 +28,4 @@ func send_error data
 export "init" init
   send_output (bnny\assemble (get_input))
   if bnny\error
-    send_error (bnny\error)
+    send_error bnny\error

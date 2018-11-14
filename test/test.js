@@ -12,13 +12,24 @@ describe("BnNY", function () {
       if (file.includes(".wast")) {
         it(file, async function () {
           let target
-          let result = JSON.parse("" + new Buffer(await bnny(fs.readFileSync(examples + file))))
+          let result
           try {
-            target = JSON.parse("" + fs.readFileSync(examples + file.replace(".wast", ".json")))
+            result = new Buffer(await bnny(fs.readFileSync(examples + file)))
           } catch (error) {
-            fs.writeFileSync(examples + file.replace(".wast", ".json"), JSON.stringify(result))
+            result = new Buffer(error.toString())
           }
-          assert.equal(JSON.stringify(result), JSON.stringify(target))
+          try {
+            target = fs.readFileSync(examples + file.replace(".wast", ".wasm"))
+          } catch (error) {
+            fs.writeFileSync(examples + file.replace(".wast", ".wasm"), result)
+          }
+          try {
+            assert.deepEqual(result, target)
+          } catch (error) {
+            fs.writeFileSync(examples + file.replace(".wast", ".json"), result)
+            assert.deepEqual(result, target.slice(0, result.byteLength))
+            console.warn("Result incomplete!🔽")
+          }
         })
       }
     }
