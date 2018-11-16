@@ -16,6 +16,7 @@ func reset
   sections =
     :type = array
     :import = array
+    :function = array
     :name = object
 
 func rewind
@@ -152,7 +153,7 @@ func read_module
       if token == "import"
         read_import
       elsif token == "func"
-        read_func_type
+        read_func_type true
       else
         ~ return unexpected token "module-level token"
         exit_parens
@@ -267,7 +268,7 @@ func read_global_type
   exit_parens
   return type
 
-func read_func_type
+func read_func_type full
   var type =
     :form = 0x60
     :params = array
@@ -307,8 +308,12 @@ func read_func_type
   exit_parens
 
   type = json_encode type
-  if (array_search sections:type type) == null
+  var type_index = array_search sections:type type
+  if type_index == null
+    type_index = array_length sections:type
     array_push sections:type type
+  if full
+    array_push sections:function type_index
   return type
 
 
@@ -320,6 +325,7 @@ func write_module
   binary_write wasm 4 1
   write_type_section
   write_import_section
+  write_function_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -375,5 +381,17 @@ func write_import_section
       write_varuint bin _import:type:mutability
 
   write_varuint wasm 0x2
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_function_section
+  if (array_length sections:function) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:function)
+  for function in sections:function
+    write_varuint bin function
+
+  write_varuint wasm 0x3
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
