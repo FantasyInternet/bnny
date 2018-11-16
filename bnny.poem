@@ -17,6 +17,7 @@ func reset
     :type = array
     :import = array
     :function = array
+    :table = array
     :name = object
 
 func rewind
@@ -143,6 +144,7 @@ func is_number token
   var char = binary_slice token 0 1
   return (binary_search digits char) != null
 
+
 ~~~ read wast ~~~
 
 func read_module
@@ -152,6 +154,8 @@ func read_module
       token = read_token
       if token == "import"
         read_import
+      elsif token == "table"
+        read_table_type true
       elsif token == "func"
         read_func_type true
       else
@@ -196,7 +200,7 @@ func read_import
   array_push sections:import _import
   return _import
 
-func read_table_type
+func read_table_type save
   var type = object
   var token = read_token
   while token
@@ -223,6 +227,8 @@ func read_table_type
       return unexpected token
     token = read_token
   exit_parens
+  if save
+    array_push sections:table type
   return type
 
 func read_memory_type
@@ -268,7 +274,7 @@ func read_global_type
   exit_parens
   return type
 
-func read_func_type full
+func read_func_type save
   var type =
     :form = 0x60
     :params = array
@@ -312,7 +318,7 @@ func read_func_type full
   if type_index == null
     type_index = array_length sections:type
     array_push sections:type type
-  if full
+  if save
     array_push sections:function type_index
   return type
 
@@ -326,6 +332,7 @@ func write_module
   write_type_section
   write_import_section
   write_function_section
+  write_table_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -369,14 +376,14 @@ func write_import_section
     write_string bin _import:module
     write_string bin _import:field
     write_varuint bin _import:kind
-    if _import:kind == 0
+    if _import:kind == 0 ~ function
       write_varuint bin (array_search sections:type _import:type)
-    if _import:kind == 1
+    if _import:kind == 1 ~ table
       write_varuint bin _import:type:element_type
       write_resizable_limits bin _import:type
-    if _import:kind == 2
+    if _import:kind == 2 ~ memory
       write_resizable_limits bin _import:type
-    if _import:kind == 3
+    if _import:kind == 3 ~ global
       write_varuint bin _import:type:content_type
       write_varuint bin _import:type:mutability
 
@@ -393,5 +400,18 @@ func write_function_section
     write_varuint bin function
 
   write_varuint wasm 0x3
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_table_section
+  if (array_length sections:table) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:table)
+  for table in sections:table
+    write_varuint bin table:element_type
+    write_resizable_limits bin table
+
+  write_varuint wasm 0x4
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
