@@ -18,6 +18,7 @@ func reset
     :import = array
     :function = array
     :table = array
+    :memory = array
     :name = object
 
 func rewind
@@ -156,6 +157,8 @@ func read_module
         read_import
       elsif token == "table"
         read_table_type true
+      elsif token == "memory"
+        read_memory_type true
       elsif token == "func"
         read_func_type true
       else
@@ -231,7 +234,7 @@ func read_table_type save
     array_push sections:table type
   return type
 
-func read_memory_type
+func read_memory_type save
   var type = object
   var token = read_token
   while token
@@ -248,6 +251,8 @@ func read_memory_type
       return unexpected token
     token = read_token
   exit_parens
+  if save
+    array_push sections:memory type
   return type
 
 func read_global_type
@@ -333,6 +338,7 @@ func write_module
   write_import_section
   write_function_section
   write_table_section
+  write_memory_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -413,5 +419,17 @@ func write_table_section
     write_resizable_limits bin table
 
   write_varuint wasm 0x4
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_memory_section
+  if (array_length sections:memory) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:memory)
+  for memory in sections:memory
+    write_resizable_limits bin memory
+
+  write_varuint wasm 0x5
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
