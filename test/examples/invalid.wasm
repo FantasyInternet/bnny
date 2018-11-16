@@ -1,1 +1,1 @@
-Error: expected (, not 'asm' at line 0, column 1!
+Error: unexpected token 'This', where '(' should be at line 1, column 0!

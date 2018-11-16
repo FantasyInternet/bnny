@@ -15,14 +15,12 @@ func reset
   error = null
   sections =
     :type = array
+    :import = array
     :name = object
-  wasm = binary_string 8
-  binary_write wasm 1 "asm"
-  binary_write wasm 4 1
 
 func rewind
   pos = 0
-  line = 0
+  line = 1
   column = 0
 
 func assemble wast
@@ -30,11 +28,12 @@ func assemble wast
   src = wast
   var token = read_token
   if token != "("
-    return unexpected "(" token
+    return unexpected token "'('"
   token = read_token
   if token != "module"
-    return unexpected "module" token
+    return unexpected token "'module'"
   read_module
+  ~ error = json_encode sections
   if error
     return null
   else
@@ -44,8 +43,11 @@ func assemble wast
 func croak message
   error = error || message + " at line " + line + ", column " + column + "!"
 
-func unexpected expected actual
-  croak "expected " + expected + ", not '" + actual + "'"
+func unexpected actual expected
+  var message = "unexpected token '" + actual + "'"
+  if expected
+    message += ", where " + expected + " should be"
+  croak message
 
 func is_eof
   return pos >= (size_of src)
@@ -97,7 +99,7 @@ func read_raw_token
         char = read_char
         binary_write token (size_of token) char
       char = read_char
-    binary_write token (size_of token) char
+    ~ binary_write token (size_of token) char
   elsif char == ";"
     token = read_char
     char = peek_char
@@ -131,6 +133,15 @@ func exit_parens
       exit_parens
   return token
 
+func is_name token
+  return (binary_search token "$") == 0
+func is_string token
+  return (binary_search token "\"") == 0
+func is_number token
+  var digits = "0123456789"
+  var char = binary_slice token 0 1
+  return (binary_search digits char) != null
+
 ~~~ read wast ~~~
 
 func read_module
@@ -143,24 +154,118 @@ func read_module
       elsif token == "func"
         read_func_type
       else
-        ~ return unexpected "module-level token" token
+        ~ return unexpected token "module-level token"
         exit_parens
     else
-      return unexpected "(" token
+      return unexpected token "'('"
     token = read_token
   exit_parens
 
 func read_import
+  var _import = object
+  var token = read_token
+  while token
+    if (is_string token)
+      _import:module = ""+binary_slice token 1 (size_of token)
+      token = read_token
+      if (is_string token)
+        _import:field = ""+binary_slice token 1 (size_of token)
+      else
+        return unexpected token "a string"
+    elsif token == "("
+      token = read_token
+      if token == "func"
+        _import:kind = 0
+        _import:type = read_func_type
+      elsif token == "table"
+        _import:kind = 1
+        _import:type = read_table_type
+      elsif token == "memory"
+        _import:kind = 2
+        _import:type = read_memory_type
+      elsif token == "global"
+        _import:kind = 3
+        _import:type = read_global_type
+      else
+        return unexpected token "a valid import"
+    else
+      return unexpected token
+    token = read_token
+  exit_parens
+  array_push sections:import _import
+  return _import
+
+func read_table_type
+  var type = object
+  var token = read_token
+  while token
+    if is_number token
+      if type:initial == null
+        type:initial = json_decode token
+      else
+        type:maximum = json_decode token
+    elsif is_name token
+      ;
+    elsif token == "i32"
+      type:element_type = 0x7f
+    elsif token == "i64"
+      type:element_type = 0x7e
+    elsif token == "f32"
+      type:element_type = 0x7d
+    elsif token == "f64"
+      type:element_type = 0x7c
+    elsif token == "anyfunc"
+      type:element_type = 0x70
+    elsif token == "func"
+      type:element_type = 0x60
+    else
+      return unexpected token
+    token = read_token
+  exit_parens
+  return type
+
+func read_memory_type
+  var type = object
+  var token = read_token
+  while token
+    if is_number token
+      if type:initial == null
+        type:initial = json_decode token
+      elsif type:maximum == null
+        type:maximum = json_decode token
+      else
+        return unexpected token
+    elsif is_name token
+      ;
+    else
+      return unexpected token
+    token = read_token
+  exit_parens
+  return type
+
+func read_global_type
+  var type = object
   var token = read_token
   while token
     if token == "("
-      token = read_token
-      if token == "func"
-        read_func_type
-      else
-        exit_parens
+      type += read_global_type
+    elsif is_name token
+      ;
+    elsif token == "mut"
+      type:mutability = 1
+    elsif token == "i32"
+      type:content_type = 0x7f
+    elsif token == "i64"
+      type:content_type = 0x7e
+    elsif token == "f32"
+      type:content_type = 0x7d
+    elsif token == "f64"
+      type:content_type = 0x7c
+    else
+      return unexpected token
     token = read_token
   exit_parens
+  return type
 
 func read_func_type
   var type =
@@ -204,28 +309,71 @@ func read_func_type
   type = json_encode type
   if (array_search sections:type type) == null
     array_push sections:type type
+  return type
+
 
 ~~~ write wasm ~~~
 
 func write_module
+  wasm = binary_string 8
+  binary_write wasm 1 "asm"
+  binary_write wasm 4 1
   write_type_section
+  write_import_section
+
+func write_string bin str
+  write_varuint bin size_of str
+  binary_write bin (size_of bin) str
+
+func write_resizable_limits bin limits
+  if limits:maximum == null
+    write_varuint bin 0
+    write_varuint bin limits:initial
+  else
+    write_varuint bin 1
+    write_varuint bin limits:initial
+    write_varuint bin limits:maximum
+
 
 func write_type_section
+  if (array_length sections:type) == 0
+    return null
   var bin = binary
   write_varuint bin (array_length sections:type)
   for type in sections:type
-    var _type = json_decode type
-    write_varuint bin _type:form
-    write_varuint bin (array_length _type:params)
-    for param in _type:params
+    type = json_decode type
+    write_varuint bin type:form
+    write_varuint bin (array_length type:params)
+    for param in type:params
       write_varuint bin param
-    write_varuint bin (array_length _type:returns)
-    for _return in _type:returns
+    write_varuint bin (array_length type:returns)
+    for _return in type:returns
       write_varuint bin _return
 
   write_varuint wasm 0x1
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 
-func write_func_type bin type
-  ;
+func write_import_section
+  if (array_length sections:import) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:import)
+  for _import in sections:import
+    write_string bin _import:module
+    write_string bin _import:field
+    write_varuint bin _import:kind
+    if _import:kind == 0
+      write_varuint bin (array_search sections:type _import:type)
+    if _import:kind == 1
+      write_varuint bin _import:type:element_type
+      write_resizable_limits bin _import:type
+    if _import:kind == 2
+      write_resizable_limits bin _import:type
+    if _import:kind == 3
+      write_varuint bin _import:type:content_type
+      write_varuint bin _import:type:mutability
+
+  write_varuint wasm 0x2
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin

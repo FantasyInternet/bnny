@@ -6,7 +6,8 @@ describe("BnNY", function () {
   this.timeout(32 * 1024)
   describe("assemble", function () {
     const examples = "./test/examples/"
-    let files = fs.readdirSync(examples)
+    let files = shuffle(fs.readdirSync(examples))
+    // files = ["invalid.wast", "sum.wast", "cat.wast", "bnny.wast"]
 
     for (const file of files) {
       if (file.includes(".wast")) {
@@ -28,10 +29,21 @@ describe("BnNY", function () {
           } catch (error) {
             fs.writeFileSync(examples + file.replace(".wast", ".json"), result)
             assert.deepEqual(result, target.slice(0, result.byteLength))
-            console.warn("Result incomplete!🔽")
+            console.warn("\t ↙` " + ("" + result.byteLength / target.byteLength * 100).substr(0, 4) + "% match")
           }
         })
       }
     }
   })
 })
+
+function shuffle(ar) {
+  let pos, swp
+  for (let i = 0; i < ar.length; i++) {
+    pos = Math.floor(Math.random() * ar.length)
+    swp = ar[i]
+    ar[i] = ar[pos]
+    ar[pos] = swp
+  }
+  return ar
+}

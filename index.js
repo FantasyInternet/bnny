@@ -31,12 +31,11 @@ let input = ""
 let output
 let error
 let bnny = WebAssembly.instantiate(fs.readFileSync("./index.wasm"), imports)
-let last_mem = 0
 bnny.then((result) => {
   bnny = result.instance.exports
-  last_mem = bnny.memory.buffer.byteLength
 })
 
+let last_mem = 0
 async function assemble(wast, options = {}) {
   error = null
   output = null

@@ -1,5 +1,9 @@
 (module
-  (memory $-memory 2)
+  (import "env" "pushFromMemory" (func $pushFromMemory (param $offset i32) (param $length i32)))
+  (import "env" "table" (table $-table 12 24 anyfunc))
+  (import "env" "memory" (memory $-memory 2 8))
+  (import "env" "holyNumber" (global $holy (mut i64  ) ) )
+  ;; (memory $-memory 2)
   (; some data) (and stuff ;)
   (data (i32.const 65536 ) "The book is called \"The Great Gatsby\" and is by F. Scott Fitzgerald" )
   ;; add two numbers together and return the sum

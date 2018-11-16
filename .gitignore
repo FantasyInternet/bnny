@@ -1,4 +1,4 @@
 node_modules/
-test/*.wasm
+test/examples/*.json
 test/*.wast
 index.wasm
