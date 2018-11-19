@@ -1,5 +1,5 @@
 # bnny
-A WebAssembly assembler written in Poetry
+A [WebAssembly](https://webassembly.org/) assembler written in [Poetry](https://github.com/FantasyInternet/poetry)
 
 _It's not ready yet!_
 

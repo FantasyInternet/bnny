@@ -1,4 +1,5 @@
-include "./leb128.wast"
+include "./utils.wast"
+include "./opcodes.poem"
 
 ~ BnNY ~ A WebAssembly assembler written in Poetry
 
@@ -7,6 +8,7 @@ var src
 var pos
 var line
 var column
+var pos_stack
 var sections
 var wasm
 
@@ -25,6 +27,25 @@ func rewind
   pos = 0
   line = 1
   column = 0
+  pos_stack = array
+
+func save_pos
+  var p =
+    :pos = 0+pos
+    :line = 0+line
+    :column = 0+column
+  array_push pos_stack p
+  return p
+
+func restore_pos
+  var p = array_pop pos_stack
+  pos = p:pos
+  line = p:line
+  column = p:column
+  return p
+
+func pop_pos
+  return array_pop pos_stack
 
 func assemble wast
   reset
@@ -141,10 +162,46 @@ func is_name token
 func is_string token
   return (binary_search token "\"") == 0
 func is_number token
-  var digits = "0123456789"
+  var digits = "-0123456789"
   var char = binary_slice token 0 1
   return (binary_search digits char) != null
 
+func token_to_number token
+  if (string_lower (binary_slice token 0 2)) == "0x"
+    return from_hex (binary_slice token 2 1024)
+  else
+    return json_decode token
+
+func translate_code bin
+  var code = binary
+  var token = read_token
+  while token
+    if token == "("
+      translate_code bin
+    else
+      var opcode = opcodes[token]
+      binary_write code (size_of code) opcode
+      if token == "i32.const" || token == "i64.const"
+        var num = read_token
+        if is_number num
+          binary_write code (size_of code) (token_to_varint num)
+        else
+          return unexpected num "a number"
+      elsif token == "f32.const"
+        var num = read_token
+        if is_number num
+          binary_write code (size_of code) (number_to_f32bin (token_to_number num))
+        else
+          return unexpected num "a number"
+      elsif token == "f64.const"
+        var num = read_token
+        if is_number num
+          binary_write code (size_of code) (number_to_f64bin (token_to_number num))
+        else
+          return unexpected num "a number"
+    token = read_token
+  exit_parens
+  binary_write bin (size_of bin) code
 
 ~~~ read wast ~~~
 
@@ -209,9 +266,9 @@ func read_table_type save
   while token
     if is_number token
       if type:initial == null
-        type:initial = json_decode token
+        type:initial = token_to_number token
       else
-        type:maximum = json_decode token
+        type:maximum = token_to_number token
     elsif is_name token
       ;
     elsif token == "i32"
@@ -240,9 +297,9 @@ func read_memory_type save
   while token
     if is_number token
       if type:initial == null
-        type:initial = json_decode token
+        type:initial = token_to_number token
       elsif type:maximum == null
-        type:maximum = json_decode token
+        type:maximum = token_to_number token
       else
         return unexpected token
     elsif is_name token

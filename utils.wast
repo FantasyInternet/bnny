@@ -1,0 +1,107 @@
+(func $token_to_varint (param $token i32) (result i32)
+  (local $pos i32)
+  (local $len i32)
+  (local $neg i32)
+  (local $dig i64)
+  (local $num i64)
+  (local $out i32)
+  (set_local $pos (call $-offset (get_local $token)))
+  (set_local $len (call $-len (get_local $token)))
+  (set_local $dig (i64.load8_u (get_local $pos)))
+  (if (i64.eq (get_local $dig) (i64.const 0x2d))(then ;; negative
+    (set_local $neg (i32.const 1))
+    (set_local $pos (i32.add (get_local $pos) (i32.const 1)))
+    (set_local $len (i32.sub (get_local $len) (i32.const 1)))
+  ))
+  (if (i32.eq (i32.load16_u (get_local $pos)) (i32.const 0x7830))(then ;; hex
+    (block(loop (br_if 1 (i32.eqz (get_local $len)))
+      (set_local $dig (i64.load8_u (get_local $pos)))
+      (set_local $num (i64.mul (get_local $num) (i64.const 0x10)))
+      (if (i64.lt_u (get_local $dig) (i64.const 0x40))(then
+        (set_local $num (i64.add (get_local $num) (i64.sub (get_local $dig) (i64.const 0x30))))
+      )(else
+        (if (i64.lt_u (get_local $dig) (i64.const 0x60))(then
+          (set_local $num (i64.add (get_local $num) (i64.sub (get_local $dig) (i64.const 0x37))))
+        )(else
+          (set_local $num (i64.add (get_local $num) (i64.sub (get_local $dig) (i64.const 0x57))))
+        ))
+      ))
+      (set_local $pos (i32.add (get_local $pos) (i32.const 1)))
+      (set_local $len (i32.sub (get_local $len) (i32.const 1)))
+    (br 0)))
+  )(else ;; decimal
+    (block(loop (br_if 1 (i32.eqz (get_local $len)))
+      (set_local $dig (i64.load8_u (get_local $pos)))
+      (set_local $num (i64.mul (get_local $num) (i64.const 10)))
+      (set_local $num (i64.add (get_local $num) (i64.sub (get_local $dig) (i64.const 0x30))))
+      (set_local $pos (i32.add (get_local $pos) (i32.const 1)))
+      (set_local $len (i32.sub (get_local $len) (i32.const 1)))
+    (br 0)))
+  ))
+  (if (get_local $neg)(then
+    (set_local $num (i64.add (i64.xor (get_local $num) (i64.const -1)) (i64.const 1)))
+  ))
+  (set_local $out (call $-new_value (i32.const 6) (i32.const 0)))
+  (block(loop
+    (call $-write8 (get_local $out) (get_local $len)
+      (i32.wrap/i64 (i64.or (i64.rem_u (get_local $num) (i64.const 128)) (i64.const 128)))
+    )
+    (set_local $num (i64.shr_s (get_local $num) (i64.const 7)))
+    (br_if 1 (i64.eqz (get_local $num)))
+    (br_if 1 (i64.eq (get_local $num) (i64.const -1)))
+    (set_local $len (i32.add (get_local $len) (i32.const 1)))
+  (br 0)))
+  (set_local $pos (i32.and (call $-read8 (get_local $out) (get_local $len)) (i32.const 127)))
+  (call $-write8 (get_local $out) (get_local $len) (get_local $pos) )
+  ;; make sure sign bit is included
+  (if (get_local $neg)(then
+    (if (i32.eqz (i32.and (get_local $pos) (i32.const 64)))(then
+      (call $-write8 (get_local $out) (get_local $len) (i32.or (get_local $pos) (i32.const 128)))
+      (call $-write8 (get_local $out) (i32.add (get_local $len) (i32.const 1)) (i32.const 127))
+    ))
+  )(else
+    (if (i32.and (get_local $pos) (i32.const 64))(then
+      (call $-write8 (get_local $out) (get_local $len) (i32.or (get_local $pos) (i32.const 128)))
+      (call $-write8 (get_local $out) (i32.add (get_local $len) (i32.const 1)) (i32.const 0))
+    ))
+  ))
+  (get_local $out)
+)
+
+(func $number_to_f64bin (param $num i32) (result i32)
+  (local $out i32)
+  (set_local $out (call $-new_value (i32.const 6) (i32.const 8)))
+  (f64.store (call $-offset (get_local $out)) (call $-f64 (get_local $num)))
+  (get_local $out)
+)
+(func $number_to_f32bin (param $num i32) (result i32)
+  (local $out i32)
+  (set_local $out (call $-new_value (i32.const 6) (i32.const 4)))
+  (f32.store (call $-offset (get_local $out)) (f32.demote/f64 (call $-f64 (get_local $num))))
+  (get_local $out)
+)
+
+(func $write_varuint (param $id i32) (param $num i32) (result i32)
+  (local $len i32)
+  (set_local $len (call $-len (get_local $id)))
+  (set_local $num (call $-i32_u (get_local $num)))
+  (block(loop
+    (if (i32.lt_u (get_local $num) (i32.const 128))(then
+      (call $-write8 (get_local $id) (get_local $len)
+        (i32.rem_u (get_local $num) (i32.const 128))
+      )
+    )(else
+      (call $-write8 (get_local $id) (get_local $len)
+        (i32.or (i32.rem_u (get_local $num) (i32.const 128)) (i32.const 128))
+      )
+    ))
+    (set_local $len (i32.add (get_local $len) (i32.const 1)))
+    (set_local $num (i32.shr_u (get_local $num) (i32.const 7)))
+    (br_if 1 (i32.eqz (get_local $num)))
+  (br 0)))
+  (get_local $id)
+)
+
+(func $from_hex (param $hex i32) (result i32)
+  (call $-integer_u (call $-from_hex (get_local $hex)))
+)
