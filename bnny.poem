@@ -49,6 +49,7 @@ func reset
     :table = array
     :memory = array
     :global = array
+    :export = array
     :name =
       :type = array
       :function = array
@@ -275,6 +276,8 @@ func read_module
         read_func_type true
       elsif token == "global"
         read_global_type true
+      elsif token == "export"
+        read_export true
       else
         ~ return unexpected token "module-level token"
         exit_parens
@@ -468,6 +471,63 @@ func read_func_type save
     array_push sections:function type_index
   return type_index
 
+func read_export save
+  var xport = object
+  var token = read_token
+  if is_string token
+    xport:field = binary_slice token 1 (size_of token)
+  else
+    return unexpected token "a string"
+  token = read_token
+  if token == "("
+    token = read_token
+    if token == "func"
+      xport:kind = 0
+      token = read_token
+      if is_number token
+        xport:index = token_to_number token
+      elsif is_name token
+        xport:index = array_search sections:name:function token
+      else
+        return unexpected token "a name"
+      exit_parens
+    elsif token == "table"
+      xport:kind = 1
+      token = read_token
+      if is_number token
+        xport:index = token_to_number token
+      elsif is_name token
+        xport:index = array_search sections:name:table token
+      else
+        return unexpected token "a name"
+      exit_parens
+    elsif token == "memory"
+      xport:kind = 2
+      token = read_token
+      if is_number token
+        xport:index = token_to_number token
+      elsif is_name token
+        xport:index = array_search sections:name:memory token
+      else
+        return unexpected token "a name"
+      exit_parens
+    elsif token == "global"
+      xport:kind = 3
+      token = read_token
+      if is_number token
+        xport:index = token_to_number token
+      elsif is_name token
+        xport:index = array_search sections:name:global token
+      else
+        return unexpected token "a name"
+      exit_parens
+    else
+      return unexpected token "kind"
+  else
+    return unexpected token "'('"
+  if save
+    array_push sections:export xport
+  exit_parens
 
 ~~~ write wasm ~~~
 
@@ -481,6 +541,7 @@ func write_module
   write_table_section
   write_memory_section
   write_global_section
+  write_export_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -588,5 +649,19 @@ func write_global_section
     binary_write bin (size_of bin) 0x0b
 
   write_varuint wasm 6
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_export_section
+  if (array_length sections:export) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:export)
+  for xport in sections:export
+    write_string bin xport:field
+    write_varuint bin xport:kind
+    write_varuint bin xport:index
+
+  write_varuint wasm 7
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
