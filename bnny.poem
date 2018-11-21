@@ -12,6 +12,33 @@ var pos_stack
 var sections
 var wasm
 
+func assemble wast
+  reset
+  src = wast
+  var token = read_token
+  if token != "("
+    return unexpected token "'('"
+  token = read_token
+  if token != "module"
+    return unexpected token "'module'"
+  read_names
+  if error
+    return null
+  rewind
+  token = read_token
+  if token != "("
+    return unexpected token "'('"
+  token = read_token
+  if token != "module"
+    return unexpected token "'module'"
+  read_module
+  ~ error = json_encode sections
+  if error
+    return null
+  else
+    write_module
+    return wasm
+
 func reset
   rewind
   error = null
@@ -21,6 +48,7 @@ func reset
     :function = array
     :table = array
     :memory = array
+    :global = array
     :name =
       :type = array
       :function = array
@@ -51,25 +79,6 @@ func restore_pos
 
 func pop_pos
   return array_pop pos_stack
-
-func assemble wast
-  reset
-  src = wast
-  var token = read_token
-  if token != "("
-    return unexpected token "'('"
-  token = read_token
-  if token != "module"
-    return unexpected token "'module'"
-  read_names
-  error = json_encode sections:name
-  rewind
-  read_module
-  if error
-    return null
-  else
-    write_module
-    return wasm
 
 func croak message
   error = error || message + " at line " + line + ", column " + column + "!"
@@ -209,7 +218,7 @@ func translate_code bin
     token = read_token
   exit_parens
   binary_write bin (size_of bin) code
-
+  return bin
 
 ~~~ read wast ~~~
 
@@ -254,7 +263,9 @@ func read_module
   while token
     if token == "("
       token = read_token
-      if token == "import"
+      if token == "type"
+        read_type
+      elsif token == "import"
         read_import
       elsif token == "table"
         read_table_type true
@@ -262,6 +273,8 @@ func read_module
         read_memory_type true
       elsif token == "func"
         read_func_type true
+      elsif token == "global"
+        read_global_type true
       else
         ~ return unexpected token "module-level token"
         exit_parens
@@ -269,6 +282,18 @@ func read_module
       return unexpected token "'('"
     token = read_token
   exit_parens
+
+func read_type
+  var type
+  var token = read_token
+  if is_name token
+    token = read_token
+  if token == "("
+    type = read_func_type
+  else
+    return unexpected token "'('"
+  exit_parens
+  return type
 
 func read_import
   var _import = object
@@ -356,12 +381,15 @@ func read_memory_type save
     array_push sections:memory type
   return type
 
-func read_global_type
+func read_global_type save
   var type = object
   var token = read_token
   while token
     if token == "("
-      type += read_global_type
+      if type:content_type
+        type:init_expr = translate_code binary
+      else
+        type += read_global_type
     elsif is_name token
       ;
     elsif token == "mut"
@@ -378,6 +406,8 @@ func read_global_type
       return unexpected token
     token = read_token
   exit_parens
+  if save
+    array_push sections:global type
   return type
 
 func read_func_type save
@@ -390,7 +420,16 @@ func read_func_type save
   while token
     if token == "("
       token = read_token
-      if token == "param"
+      if token == "type"
+        token = read_token
+        if is_name token
+          var type_index = array_search sections:name:type token
+        elsif is_number token
+          var type_index = token_to_number
+        else
+          return unexpected token "type reference"
+        exit_parens
+      elsif token == "param"
         while token
           if token == "i32"
             array_push type:params 0x7f
@@ -419,14 +458,15 @@ func read_func_type save
     token = read_token
   exit_parens
 
-  type = json_encode type
-  var type_index = array_search sections:type type
   if type_index == null
-    type_index = array_length sections:type
-    array_push sections:type type
+    type = json_encode type
+    type_index = array_search sections:type type
+    if type_index == null
+      type_index = array_length sections:type
+      array_push sections:type type
   if save
     array_push sections:function type_index
-  return type
+  return type_index
 
 
 ~~~ write wasm ~~~
@@ -440,6 +480,7 @@ func write_module
   write_function_section
   write_table_section
   write_memory_section
+  write_global_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -470,7 +511,7 @@ func write_type_section
     for _return in type:returns
       write_varuint bin _return
 
-  write_varuint wasm 0x1
+  write_varuint wasm 1
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 
@@ -484,7 +525,7 @@ func write_import_section
     write_string bin _import:field
     write_varuint bin _import:kind
     if _import:kind == 0 ~ function
-      write_varuint bin (array_search sections:type _import:type)
+      write_varuint bin _import:type
     if _import:kind == 1 ~ table
       write_varuint bin _import:type:element_type
       write_resizable_limits bin _import:type
@@ -494,7 +535,7 @@ func write_import_section
       write_varuint bin _import:type:content_type
       write_varuint bin _import:type:mutability
 
-  write_varuint wasm 0x2
+  write_varuint wasm 2
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 
@@ -506,7 +547,7 @@ func write_function_section
   for function in sections:function
     write_varuint bin function
 
-  write_varuint wasm 0x3
+  write_varuint wasm 3
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 
@@ -519,7 +560,7 @@ func write_table_section
     write_varuint bin table:element_type
     write_resizable_limits bin table
 
-  write_varuint wasm 0x4
+  write_varuint wasm 4
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 
@@ -531,6 +572,21 @@ func write_memory_section
   for memory in sections:memory
     write_resizable_limits bin memory
 
-  write_varuint wasm 0x5
+  write_varuint wasm 5
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_global_section
+  if (array_length sections:global) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:global)
+  for global in sections:global
+    write_varuint bin global:content_type
+    write_varuint bin global:mutability
+    binary_write bin (size_of bin) global:init_expr
+    binary_write bin (size_of bin) 0x0b
+
+  write_varuint wasm 6
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
