@@ -21,7 +21,12 @@ func reset
     :function = array
     :table = array
     :memory = array
-    :name = object
+    :name =
+      :type = array
+      :function = array
+      :global = array
+      :memory = array
+      :table = array
 
 func rewind
   pos = 0
@@ -56,8 +61,10 @@ func assemble wast
   token = read_token
   if token != "module"
     return unexpected token "'module'"
+  read_names
+  error = json_encode sections:name
+  rewind
   read_module
-  ~ error = json_encode sections
   if error
     return null
   else
@@ -203,7 +210,44 @@ func translate_code bin
   exit_parens
   binary_write bin (size_of bin) code
 
+
 ~~~ read wast ~~~
+
+func read_names
+  var token = read_token
+  while token
+    if token == "("
+      token = read_token
+      if token == "type"
+        array_push sections:name:type (read_name)
+      elsif token == "import"
+        token = read_token
+        token = read_token
+        read_names
+      elsif token == "table"
+        array_push sections:name:table (read_name)
+      elsif token == "memory"
+        array_push sections:name:memory (read_name)
+      elsif token == "func"
+        array_push sections:name:function (read_name)
+      elsif token == "global"
+        array_push sections:name:global (read_name)
+      else
+        ~ return unexpected token "module-level token"
+        exit_parens
+    else
+      return unexpected token "'('"
+    token = read_token
+  exit_parens
+
+func read_name
+  var token = read_token
+  if is_name token
+    var name = token
+  if token == "("
+    exit_parens
+  exit_parens
+  return name
 
 func read_module
   var token = read_token

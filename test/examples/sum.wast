@@ -1,4 +1,5 @@
 (module
+  (type $myType (func (param i32 i32) (result i32)))
   (import "env" "pushFromMemory" (func $pushFromMemory (param $offset i32) (param $length i32)))
   (import "env" "table" (table $-table 12 24 anyfunc))
   (import "env" "memory" (memory $-memory 2 8))
