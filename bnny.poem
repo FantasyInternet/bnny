@@ -50,6 +50,7 @@ func reset
     :memory = array
     :global = array
     :export = array
+    :start = null
     :name =
       :type = array
       :function = array
@@ -278,6 +279,8 @@ func read_module
         read_global_type true
       elsif token == "export"
         read_export true
+      elsif token == "start"
+        read_start true
       else
         ~ return unexpected token "module-level token"
         exit_parens
@@ -529,6 +532,16 @@ func read_export save
     array_push sections:export xport
   exit_parens
 
+func read_start save
+  var token = read_token
+  if is_number token
+    sections:start = token_to_number token
+  elsif is_name token
+    sections:start = array_search sections:name:function token
+  else
+    return unexpected token "function reference"
+  exit_parens
+
 ~~~ write wasm ~~~
 
 func write_module
@@ -542,6 +555,7 @@ func write_module
   write_memory_section
   write_global_section
   write_export_section
+  write_start_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -665,3 +679,14 @@ func write_export_section
   write_varuint wasm 7
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
+
+func write_start_section
+  if sections:start == null
+    return null
+  var bin = binary
+  write_varuint bin sections:start
+
+  write_varuint wasm 8
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+  
