@@ -51,6 +51,7 @@ func reset
     :global = array
     :export = array
     :start = null
+    :element = array
     :name =
       :type = array
       :function = array
@@ -281,6 +282,8 @@ func read_module
         read_export true
       elsif token == "start"
         read_start true
+      elsif token == "elem"
+        read_element true
       else
         ~ return unexpected token "module-level token"
         exit_parens
@@ -542,6 +545,34 @@ func read_start save
     return unexpected token "function reference"
   exit_parens
 
+func read_element save
+  var elem =
+    :elems = array
+  var token = read_token
+  while token
+    if is_number token
+      if elem:index == null
+        elem:index = token_to_number token
+      else
+        array_push elem:elems (token_to_number token)
+    elsif is_name token
+      if elem:index == null
+        elem:index = array_search sections:name:table token
+      else
+        array_push elem:elems (array_search sections:name:function token)
+    elsif token == "("
+      if elem:index == null
+        elem:index = 0
+      elem:offset = translate_code binary
+    else
+      return unexpected token
+    token = read_token
+  exit_parens
+  if save
+    array_push sections:element elem
+  return elem
+
+
 ~~~ write wasm ~~~
 
 func write_module
@@ -556,6 +587,7 @@ func write_module
   write_global_section
   write_export_section
   write_start_section
+  write_element_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -689,4 +721,21 @@ func write_start_section
   write_varuint wasm 8
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
-  
+
+func write_element_section
+  if (array_length sections:element) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:element)
+  for elem in sections:element
+    write_varuint bin elem:index
+    binary_write bin (size_of bin) elem:offset
+    binary_write bin (size_of bin) 0x0b
+    write_varuint bin (array_length elem:elems)
+    for _elem in elem:elems
+      write_varuint bin _elem
+
+  write_varuint wasm 9
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
