@@ -11,6 +11,8 @@ var column
 var pos_stack
 var sections
 var wasm
+var local_names
+var blocks
 
 func assemble wast
   reset
@@ -23,7 +25,7 @@ func assemble wast
     return unexpected token "'module'"
   read_names
   if error
-    return null
+    return null 
   rewind
   token = read_token
   if token != "("
@@ -52,6 +54,7 @@ func reset
     :export = array
     :start = null
     :element = array
+    :code = array
     :name =
       :type = array
       :function = array
@@ -191,16 +194,111 @@ func token_to_number token
   else
     return json_decode token
 
-func translate_code bin
+func translate_code bin token
   var code = binary
-  var token = read_token
+  var to_code = false
+  var autoend = false
+  if token == null
+    token = read_token
   while token
     if token == "("
-      translate_code bin
+      if to_code
+        translate_code code
+      else
+        translate_code bin
+      if to_code == null
+        to_code = true
     else
       var opcode = opcodes[token]
-      binary_write code (size_of code) opcode
-      if token == "i32.const" || token == "i64.const"
+      if opcode != null
+        binary_write code (size_of code) opcode
+      if token == "block" || token == "loop" || token == "if"
+        if token == "if"
+          to_code = null
+        else
+          to_code = true
+        autoend = true
+        save_pos; var num = read_token
+        if is_name num
+          array_unshift blocks num
+          pop_pos
+        else
+          array_unshift blocks "$"
+          restore_pos
+        save_pos; num = read_token
+        if num == "("
+          num = read_token
+          if num == "result"
+            num = read_token
+            if num == "i32"
+              num = 0x7f
+            elsif num == "i64"
+              num = 0x7e
+            elsif num == "f32"
+              num = 0x7d
+            elsif num == "f64"
+              num = 0x7c
+            pop_pos
+          else
+            num = 0x40
+            restore_pos
+        else
+          num = 0x40
+          restore_pos
+        write_varuint code num
+      elsif token == "else"
+        to_code = true
+      elsif token == "end"
+        to_code = false
+        autoend = false
+        array_shift blocks
+      elsif token == "br" || token == "br_if"
+        var num = read_token
+        if is_number num
+          write_varuint code (token_to_number num)
+        elsif is_name num
+          write_varuint code (array_search blocks num)
+        else
+          return unexpected num "a relative depth"
+      elsif token == "call"
+        var num = read_token
+        if is_number num
+          write_varuint code (token_to_number num)
+        elsif is_name num
+          write_varuint code (array_search sections:name:function num)
+        else
+          return unexpected num "a function reference"
+      elsif (binary_search token "_local") == 3
+        var num = read_token
+        if is_number num
+          write_varuint code (token_to_number num)
+        elsif is_name num
+          write_varuint code (array_search local_names num)
+        else
+          return unexpected num "a local reference"
+      elsif (binary_search token "_global") == 3
+        var num = read_token
+        if is_number num
+          write_varuint code (token_to_number num)
+        elsif is_name num
+          write_varuint code (array_search sections:name:global num)
+        else
+          return unexpected num "a global reference"
+      elsif (binary_search token ".load") == 3 || (binary_search token ".store") == 3
+        var num
+        if (binary_search token "64")
+          num = 3
+        if (binary_search token "32")
+          num = 2
+        if (binary_search token "16")
+          num = 1
+        if (binary_search token "8")
+          num = 0
+        write_varuint code num
+        write_varuint code 0
+      elsif token == "current_memory" || token == "grow_memory"
+        write_varuint code 0
+      elsif token == "i32.const" || token == "i64.const"
         var num = read_token
         if is_number num
           binary_write code (size_of code) (token_to_varint num)
@@ -219,6 +317,9 @@ func translate_code bin
         else
           return unexpected num "a number"
     token = read_token
+  if autoend
+    binary_write code (size_of code) 0x0b
+    array_shift blocks
   exit_parens
   binary_write bin (size_of bin) code
   return bin
@@ -298,7 +399,11 @@ func read_type
   if is_name token
     token = read_token
   if token == "("
-    type = read_func_type
+    token = read_token
+    if token == "func"
+      type = read_func_type
+    else
+      return unexpected token "'func'"
   else
     return unexpected token "'('"
   exit_parens
@@ -424,10 +529,17 @@ func read_func_type save
     :form = 0x60
     :params = array
     :returns = array
-
+  local_names = array
+  blocks = array
+  var function =
+    :locals = array
+    :names = local_names
+    :code = binary
   var token = read_token
-  while token
-    if token == "("
+  while token 
+    if is_name token
+      ;
+    elsif token == "("
       token = read_token
       if token == "type"
         token = read_token
@@ -440,7 +552,9 @@ func read_func_type save
         exit_parens
       elsif token == "param"
         while token
-          if token == "i32"
+          if is_name token
+            array_push function:names token
+          elsif token == "i32"
             array_push type:params 0x7f
           elsif token == "i64"
             array_push type:params 0x7e
@@ -448,6 +562,20 @@ func read_func_type save
             array_push type:params 0x7d
           elsif token == "f64"
             array_push type:params 0x7c
+          token = read_token
+        exit_parens
+      elsif token == "local"
+        while token
+          if is_name token
+            array_push function:names token
+          elsif token == "i32"
+            array_push function:locals 0x7f
+          elsif token == "i64"
+            array_push function:locals 0x7e
+          elsif token == "f32"
+            array_push function:locals 0x7d
+          elsif token == "f64"
+            array_push function:locals 0x7c
           token = read_token
         exit_parens
       elsif token == "result"
@@ -463,7 +591,10 @@ func read_func_type save
           token = read_token
         exit_parens
       else
-        exit_parens
+        translate_code function:code token
+    else
+      translate_code function:code token
+      backstep
     token = read_token
   exit_parens
 
@@ -475,6 +606,7 @@ func read_func_type save
       array_push sections:type type
   if save
     array_push sections:function type_index
+    array_push sections:code function
   return type_index
 
 func read_export save
@@ -588,6 +720,7 @@ func write_module
   write_export_section
   write_start_section
   write_element_section
+  write_code_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -736,6 +869,43 @@ func write_element_section
       write_varuint bin _elem
 
   write_varuint wasm 9
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_code_section
+  if (array_length sections:code) == 0
+    return null
+  var t
+  var c
+  var locals
+  var bin = binary
+  write_varuint bin (array_length sections:code)
+  for body in sections:code
+    var bodybin = binary
+    locals = array
+    c = 0; t = null
+    for local in body:locals
+      if local != t
+        if c
+          array_push locals
+            :count = c
+            :type = t
+        c = 0; t = local
+      c++
+    if c
+      array_push locals
+        :count = c
+        :type = t
+    write_varuint bodybin (array_length locals)
+    for local in locals
+      write_varuint bodybin local:count
+      write_varuint bodybin local:type
+    binary_write bodybin (size_of bodybin) body:code
+    binary_write bodybin (size_of bodybin) 0x0b
+    write_varuint bin (size_of bodybin)
+    binary_write bin (size_of bin) bodybin
+
+  write_varuint wasm 10
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 

@@ -17,20 +17,262 @@
   ;; memory
 
   (memory $-memory 2 )
-  (data (i32.const 65536 ) "type" )
-  (data (i32.const 65552 ) "count" )
-  (data (i32.const 65568 ) "bin" )
-  (data (i32.const 65584 ) "(" )
-  (data (i32.const 65600 ) " at line " )
-  (data (i32.const 65624 ) ", column " )
-  (data (i32.const 65648 ) "!" )
-  (data (i32.const 65664 ) "\0a" )
-  (data (i32.const 65680 ) ";" )
-  (data (i32.const 65696 ) ";)" )
-  (data (i32.const 65712 ) ")" )
-  (data (i32.const 65728 ) "\22" )
-  (data (i32.const 65744 ) "\5c" )
-  (data (i32.const 65760 ) "();\22" )
+  (data (i32.const 65536 ) "(" )
+  (data (i32.const 65552 ) "'('" )
+  (data (i32.const 65568 ) "module" )
+  (data (i32.const 65584 ) "'module'" )
+  (data (i32.const 65608 ) "type" )
+  (data (i32.const 65624 ) "import" )
+  (data (i32.const 65640 ) "function" )
+  (data (i32.const 65664 ) "table" )
+  (data (i32.const 65680 ) "memory" )
+  (data (i32.const 65696 ) "global" )
+  (data (i32.const 65712 ) "export" )
+  (data (i32.const 65728 ) "start" )
+  (data (i32.const 65744 ) "element" )
+  (data (i32.const 65760 ) "code" )
+  (data (i32.const 65776 ) "name" )
+  (data (i32.const 65792 ) "pos" )
+  (data (i32.const 65808 ) "line" )
+  (data (i32.const 65824 ) "column" )
+  (data (i32.const 65840 ) " at line " )
+  (data (i32.const 65864 ) ", column " )
+  (data (i32.const 65888 ) "!" )
+  (data (i32.const 65904 ) "unexpected token '" )
+  (data (i32.const 65936 ) "'" )
+  (data (i32.const 65952 ) ", where " )
+  (data (i32.const 65976 ) " should be" )
+  (data (i32.const 66000 ) "\0a" )
+  (data (i32.const 66016 ) ";" )
+  (data (i32.const 66032 ) ";)" )
+  (data (i32.const 66048 ) ")" )
+  (data (i32.const 66064 ) "\22" )
+  (data (i32.const 66080 ) "\5c" )
+  (data (i32.const 66096 ) "();\22" )
+  (data (i32.const 66112 ) ";;" )
+  (data (i32.const 66128 ) "$" )
+  (data (i32.const 66144 ) "-0123456789" )
+  (data (i32.const 66168 ) "0x" )
+  (data (i32.const 66184 ) "block" )
+  (data (i32.const 66200 ) "loop" )
+  (data (i32.const 66216 ) "if" )
+  (data (i32.const 66232 ) "result" )
+  (data (i32.const 66248 ) "i32" )
+  (data (i32.const 66264 ) "i64" )
+  (data (i32.const 66280 ) "f32" )
+  (data (i32.const 66296 ) "f64" )
+  (data (i32.const 66312 ) "else" )
+  (data (i32.const 66328 ) "end" )
+  (data (i32.const 66344 ) "br" )
+  (data (i32.const 66360 ) "br_if" )
+  (data (i32.const 66376 ) "a relative depth" )
+  (data (i32.const 66408 ) "call" )
+  (data (i32.const 66424 ) "a function reference" )
+  (data (i32.const 66456 ) "_local" )
+  (data (i32.const 66472 ) "a local reference" )
+  (data (i32.const 66504 ) "_global" )
+  (data (i32.const 66520 ) "a global reference" )
+  (data (i32.const 66552 ) ".load" )
+  (data (i32.const 66568 ) ".store" )
+  (data (i32.const 66584 ) "64" )
+  (data (i32.const 66600 ) "32" )
+  (data (i32.const 66616 ) "16" )
+  (data (i32.const 66632 ) "8" )
+  (data (i32.const 66648 ) "current_memory" )
+  (data (i32.const 66672 ) "grow_memory" )
+  (data (i32.const 66696 ) "i32.const" )
+  (data (i32.const 66720 ) "i64.const" )
+  (data (i32.const 66744 ) "a number" )
+  (data (i32.const 66768 ) "f32.const" )
+  (data (i32.const 66792 ) "f64.const" )
+  (data (i32.const 66816 ) "func" )
+  (data (i32.const 66832 ) "elem" )
+  (data (i32.const 66848 ) "'func'" )
+  (data (i32.const 66864 ) "field" )
+  (data (i32.const 66880 ) "a string" )
+  (data (i32.const 66904 ) "kind" )
+  (data (i32.const 66920 ) "a valid import" )
+  (data (i32.const 66944 ) "initial" )
+  (data (i32.const 66960 ) "maximum" )
+  (data (i32.const 66976 ) "element_type" )
+  (data (i32.const 67000 ) "anyfunc" )
+  (data (i32.const 67016 ) "content_type" )
+  (data (i32.const 67040 ) "init_expr" )
+  (data (i32.const 67064 ) "mut" )
+  (data (i32.const 67080 ) "mutability" )
+  (data (i32.const 67104 ) "form" )
+  (data (i32.const 67120 ) "params" )
+  (data (i32.const 67136 ) "returns" )
+  (data (i32.const 67152 ) "locals" )
+  (data (i32.const 67168 ) "names" )
+  (data (i32.const 67184 ) "type reference" )
+  (data (i32.const 67208 ) "param" )
+  (data (i32.const 67224 ) "local" )
+  (data (i32.const 67240 ) "index" )
+  (data (i32.const 67256 ) "a name" )
+  (data (i32.const 67272 ) "function reference" )
+  (data (i32.const 67304 ) "elems" )
+  (data (i32.const 67320 ) "offset" )
+  (data (i32.const 67336 ) "asm" )
+  (data (i32.const 67352 ) "count" )
+  (data (i32.const 67368 ) "unreachable" )
+  (data (i32.const 67392 ) "nop" )
+  (data (i32.const 67408 ) "br_table" )
+  (data (i32.const 67432 ) "return" )
+  (data (i32.const 67448 ) "call_indirect" )
+  (data (i32.const 67472 ) "drop" )
+  (data (i32.const 67488 ) "select" )
+  (data (i32.const 67504 ) "get_local" )
+  (data (i32.const 67528 ) "set_local" )
+  (data (i32.const 67552 ) "tee_local" )
+  (data (i32.const 67576 ) "get_global" )
+  (data (i32.const 67600 ) "set_global" )
+  (data (i32.const 67624 ) "i32.load" )
+  (data (i32.const 67648 ) "i64.load" )
+  (data (i32.const 67672 ) "f32.load" )
+  (data (i32.const 67696 ) "f64.load" )
+  (data (i32.const 67720 ) "i32.load8_s" )
+  (data (i32.const 67744 ) "i32.load8_u" )
+  (data (i32.const 67768 ) "i32.load16_s" )
+  (data (i32.const 67792 ) "i32.load16_u" )
+  (data (i32.const 67816 ) "i64.load8_s" )
+  (data (i32.const 67840 ) "i64.load8_u" )
+  (data (i32.const 67864 ) "i64.load16_s" )
+  (data (i32.const 67888 ) "i64.load16_u" )
+  (data (i32.const 67912 ) "i64.load32_s" )
+  (data (i32.const 67936 ) "i64.load32_u" )
+  (data (i32.const 67960 ) "i32.store" )
+  (data (i32.const 67984 ) "i64.store" )
+  (data (i32.const 68008 ) "f32.store" )
+  (data (i32.const 68032 ) "f64.store" )
+  (data (i32.const 68056 ) "i32.store8" )
+  (data (i32.const 68080 ) "i32.store16" )
+  (data (i32.const 68104 ) "i64.store8" )
+  (data (i32.const 68128 ) "i64.store16" )
+  (data (i32.const 68152 ) "i64.store32" )
+  (data (i32.const 68176 ) "i32.eqz" )
+  (data (i32.const 68192 ) "i32.eq" )
+  (data (i32.const 68208 ) "i32.ne" )
+  (data (i32.const 68224 ) "i32.lt_s" )
+  (data (i32.const 68248 ) "i32.lt_u" )
+  (data (i32.const 68272 ) "i32.gt_s" )
+  (data (i32.const 68296 ) "i32.gt_u" )
+  (data (i32.const 68320 ) "i32.le_s" )
+  (data (i32.const 68344 ) "i32.le_u" )
+  (data (i32.const 68368 ) "i32.ge_s" )
+  (data (i32.const 68392 ) "i32.ge_u" )
+  (data (i32.const 68416 ) "i64.eqz" )
+  (data (i32.const 68432 ) "i64.eq" )
+  (data (i32.const 68448 ) "i64.ne" )
+  (data (i32.const 68464 ) "i64.lt_s" )
+  (data (i32.const 68488 ) "i64.lt_u" )
+  (data (i32.const 68512 ) "i64.gt_s" )
+  (data (i32.const 68536 ) "i64.gt_u" )
+  (data (i32.const 68560 ) "i64.le_s" )
+  (data (i32.const 68584 ) "i64.le_u" )
+  (data (i32.const 68608 ) "i64.ge_s" )
+  (data (i32.const 68632 ) "i64.ge_u" )
+  (data (i32.const 68656 ) "f32.eq" )
+  (data (i32.const 68672 ) "f32.ne" )
+  (data (i32.const 68688 ) "f32.lt" )
+  (data (i32.const 68704 ) "f32.gt" )
+  (data (i32.const 68720 ) "f32.le" )
+  (data (i32.const 68736 ) "f32.ge" )
+  (data (i32.const 68752 ) "f64.eq" )
+  (data (i32.const 68768 ) "f64.ne" )
+  (data (i32.const 68784 ) "f64.lt" )
+  (data (i32.const 68800 ) "f64.gt" )
+  (data (i32.const 68816 ) "f64.le" )
+  (data (i32.const 68832 ) "f64.ge" )
+  (data (i32.const 68848 ) "i32.clz" )
+  (data (i32.const 68864 ) "i32.ctz" )
+  (data (i32.const 68880 ) "i32.popcnt" )
+  (data (i32.const 68904 ) "i32.add" )
+  (data (i32.const 68920 ) "i32.sub" )
+  (data (i32.const 68936 ) "i32.mul" )
+  (data (i32.const 68952 ) "i32.div_s" )
+  (data (i32.const 68976 ) "i32.div_u" )
+  (data (i32.const 69000 ) "i32.rem_s" )
+  (data (i32.const 69024 ) "i32.rem_u" )
+  (data (i32.const 69048 ) "i32.and" )
+  (data (i32.const 69064 ) "i32.or" )
+  (data (i32.const 69080 ) "i32.xor" )
+  (data (i32.const 69096 ) "i32.shl" )
+  (data (i32.const 69112 ) "i32.shr_s" )
+  (data (i32.const 69136 ) "i32.shr_u" )
+  (data (i32.const 69160 ) "i32.rotl" )
+  (data (i32.const 69184 ) "i32.rotr" )
+  (data (i32.const 69208 ) "i64.clz" )
+  (data (i32.const 69224 ) "i64.ctz" )
+  (data (i32.const 69240 ) "i64.popcnt" )
+  (data (i32.const 69264 ) "i64.add" )
+  (data (i32.const 69280 ) "i64.sub" )
+  (data (i32.const 69296 ) "i64.mul" )
+  (data (i32.const 69312 ) "i64.div_s" )
+  (data (i32.const 69336 ) "i64.div_u" )
+  (data (i32.const 69360 ) "i64.rem_s" )
+  (data (i32.const 69384 ) "i64.rem_u" )
+  (data (i32.const 69408 ) "i64.and" )
+  (data (i32.const 69424 ) "i64.or" )
+  (data (i32.const 69440 ) "i64.xor" )
+  (data (i32.const 69456 ) "i64.shl" )
+  (data (i32.const 69472 ) "i64.shr_s" )
+  (data (i32.const 69496 ) "i64.shr_u" )
+  (data (i32.const 69520 ) "i64.rotl" )
+  (data (i32.const 69544 ) "i64.rotr" )
+  (data (i32.const 69568 ) "f32.abs" )
+  (data (i32.const 69584 ) "f32.neg" )
+  (data (i32.const 69600 ) "f32.ceil" )
+  (data (i32.const 69624 ) "f32.floor" )
+  (data (i32.const 69648 ) "f32.trunc" )
+  (data (i32.const 69672 ) "f32.nearest" )
+  (data (i32.const 69696 ) "f32.sqrt" )
+  (data (i32.const 69720 ) "f32.add" )
+  (data (i32.const 69736 ) "f32.sub" )
+  (data (i32.const 69752 ) "f32.mul" )
+  (data (i32.const 69768 ) "f32.div" )
+  (data (i32.const 69784 ) "f32.min" )
+  (data (i32.const 69800 ) "f32.max" )
+  (data (i32.const 69816 ) "f32.copysign" )
+  (data (i32.const 69840 ) "f64.abs" )
+  (data (i32.const 69856 ) "f64.neg" )
+  (data (i32.const 69872 ) "f64.ceil" )
+  (data (i32.const 69896 ) "f64.floor" )
+  (data (i32.const 69920 ) "f64.trunc" )
+  (data (i32.const 69944 ) "f64.nearest" )
+  (data (i32.const 69968 ) "f64.sqrt" )
+  (data (i32.const 69992 ) "f64.add" )
+  (data (i32.const 70008 ) "f64.sub" )
+  (data (i32.const 70024 ) "f64.mul" )
+  (data (i32.const 70040 ) "f64.div" )
+  (data (i32.const 70056 ) "f64.min" )
+  (data (i32.const 70072 ) "f64.max" )
+  (data (i32.const 70088 ) "f64.copysign" )
+  (data (i32.const 70112 ) "i32.wrap/i64" )
+  (data (i32.const 70136 ) "i32.trunc_s/f32" )
+  (data (i32.const 70160 ) "i32.trunc_u/f32" )
+  (data (i32.const 70184 ) "i32.trunc_s/f64" )
+  (data (i32.const 70208 ) "i32.trunc_u/f64" )
+  (data (i32.const 70232 ) "i64.extend_s/i32" )
+  (data (i32.const 70264 ) "i64.extend_u/i32" )
+  (data (i32.const 70296 ) "i64.trunc_s/f32" )
+  (data (i32.const 70320 ) "i64.trunc_u/f32" )
+  (data (i32.const 70344 ) "i64.trunc_s/f64" )
+  (data (i32.const 70368 ) "i64.trunc_u/f64" )
+  (data (i32.const 70392 ) "f32.convert_s/i32" )
+  (data (i32.const 70424 ) "f32.convert_u/i32" )
+  (data (i32.const 70456 ) "f32.convert_s/i64" )
+  (data (i32.const 70488 ) "f32.convert_u/i64" )
+  (data (i32.const 70520 ) "f32.demote/f64" )
+  (data (i32.const 70544 ) "f64.convert_s/i32" )
+  (data (i32.const 70576 ) "f64.convert_u/i32" )
+  (data (i32.const 70608 ) "f64.convert_s/i64" )
+  (data (i32.const 70640 ) "f64.convert_u/i64" )
+  (data (i32.const 70672 ) "f64.promote/f32" )
+  (data (i32.const 70696 ) "i32.reinterpret/f32" )
+  (data (i32.const 70728 ) "i64.reinterpret/f64" )
+  (data (i32.const 70760 ) "f32.reinterpret/i32" )
+  (data (i32.const 70792 ) "f64.reinterpret/i64" )
 
   ;; table
 
@@ -56,7 +298,22 @@
   (global $ns2\column
     (mut i32 )
     (i32.const 0 ) )
+  (global $ns2\pos_stack
+    (mut i32 )
+    (i32.const 0 ) )
   (global $ns2\sections
+    (mut i32 )
+    (i32.const 0 ) )
+  (global $ns2\wasm
+    (mut i32 )
+    (i32.const 0 ) )
+  (global $ns2\local_names
+    (mut i32 )
+    (i32.const 0 ) )
+  (global $ns2\blocks
+    (mut i32 )
+    (i32.const 0 ) )
+  (global $ns4\opcodes
     (mut i32 )
     (i32.const 0 ) )
 
@@ -1879,6 +2136,102 @@
         (i32.const 1 ) ) )
     (get_local $ns1\char ) )
 
+  ;; function $ns2\assemble
+
+  (func $ns2\assemble
+    (param $ns2\wast i32 )
+    (result i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop (call $ns2\reset ) )
+      (drop
+        (set_global $ns2\src (get_local $ns2\wast ) )
+        (get_global $ns2\src ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $-unequal
+            (get_local $ns2\token )
+            (i32.const 8 ) ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 9 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $-unequal
+            (get_local $ns2\token )
+            (i32.const 10 ) ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 11 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\read_names ) )
+      (if
+        (call $-truthy (get_global $ns2\error ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\rewind ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $-unequal
+            (get_local $ns2\token )
+            (i32.const 8 ) ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 9 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $-unequal
+            (get_local $ns2\token )
+            (i32.const 10 ) ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 11 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\read_module ) )
+      (if
+        (call $-truthy (get_global $ns2\error ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (drop (call $ns2\write_module ) )
+          (set_local $-ret (get_global $ns2\wasm ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
   ;; function $ns2\reset
 
   (func $ns2\reset
@@ -1900,31 +2253,161 @@
           (drop
             (call $-set_to_obj
               (get_local $-obj0 )
-              (i32.const 8 )
+              (i32.const 12 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 12 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 13 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 13 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 14 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 14 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 15 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 15 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 16 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 16 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 17 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 17 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 18 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 18 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 19 )
+              (i32.const 0 ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 19 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 20 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 20 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 21 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 21 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 22 )
               (tee_local $-obj1 (call $-new_value
                   (i32.const 5 )
                   (i32.const 0 ) ) )
               (drop
                 (call $-set_to_obj
                   (get_local $-obj1 )
-                  (i32.const 9 )
-                  (call $-number (f64.const 0 ) ) )
-                (call $-get_from_obj
-                  (get_local $-obj1 )
-                  (i32.const 9 ) ) )
-              (drop
-                (call $-set_to_obj
-                  (get_local $-obj1 )
-                  (i32.const 10 )
+                  (i32.const 12 )
                   (call $-new_value
-                    (i32.const 6 )
+                    (i32.const 4 )
                     (i32.const 0 ) ) )
                 (call $-get_from_obj
                   (get_local $-obj1 )
-                  (i32.const 10 ) ) ) )
+                  (i32.const 12 ) ) )
+              (drop
+                (call $-set_to_obj
+                  (get_local $-obj1 )
+                  (i32.const 14 )
+                  (call $-new_value
+                    (i32.const 4 )
+                    (i32.const 0 ) ) )
+                (call $-get_from_obj
+                  (get_local $-obj1 )
+                  (i32.const 14 ) ) )
+              (drop
+                (call $-set_to_obj
+                  (get_local $-obj1 )
+                  (i32.const 17 )
+                  (call $-new_value
+                    (i32.const 4 )
+                    (i32.const 0 ) ) )
+                (call $-get_from_obj
+                  (get_local $-obj1 )
+                  (i32.const 17 ) ) )
+              (drop
+                (call $-set_to_obj
+                  (get_local $-obj1 )
+                  (i32.const 16 )
+                  (call $-new_value
+                    (i32.const 4 )
+                    (i32.const 0 ) ) )
+                (call $-get_from_obj
+                  (get_local $-obj1 )
+                  (i32.const 16 ) ) )
+              (drop
+                (call $-set_to_obj
+                  (get_local $-obj1 )
+                  (i32.const 15 )
+                  (call $-new_value
+                    (i32.const 4 )
+                    (i32.const 0 ) ) )
+                (call $-get_from_obj
+                  (get_local $-obj1 )
+                  (i32.const 15 ) ) ) )
             (call $-get_from_obj
               (get_local $-obj0 )
-              (i32.const 8 ) ) ) )
+              (i32.const 22 ) ) ) )
         (get_global $ns2\sections ) )
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
@@ -1940,62 +2423,112 @@
         (set_global $ns2\pos (call $-number (f64.const 0 ) ) )
         (get_global $ns2\pos ) )
       (drop
-        (set_global $ns2\line (call $-number (f64.const 0 ) ) )
+        (set_global $ns2\line (call $-number (f64.const 1 ) ) )
         (get_global $ns2\line ) )
       (drop
         (set_global $ns2\column (call $-number (f64.const 0 ) ) )
         (get_global $ns2\column ) )
+      (drop
+        (set_global $ns2\pos_stack (call $-new_value
+            (i32.const 4 )
+            (i32.const 0 ) ) )
+        (get_global $ns2\pos_stack ) )
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
 
-  ;; function $ns2\assemble
+  ;; function $ns2\save_pos
 
-  (func $ns2\assemble
-    (param $ns2\wast i32 )
+  (func $ns2\save_pos
     (result i32 )
-    (local $ns2\tokens i32 )
-    (local $ns2\token i32 )
+    (local $ns2\p i32 )
+    (local $-obj0 i32 )
     (local $-ret i32 )
     (local $-success i32 )
     (block
-      (drop (call $ns2\reset ) )
       (drop
-        (set_global $ns2\src (get_local $ns2\wast ) )
-        (get_global $ns2\src ) )
+        (set_local $ns2\p
+          (tee_local $-obj0 (call $-new_value
+              (i32.const 5 )
+              (i32.const 0 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 23 )
+              (call $-add
+                (call $-number (f64.const 0 ) )
+                (get_global $ns2\pos ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 23 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 24 )
+              (call $-add
+                (call $-number (f64.const 0 ) )
+                (get_global $ns2\line ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 24 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 25 )
+              (call $-add
+                (call $-number (f64.const 0 ) )
+                (get_global $ns2\column ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 25 ) ) ) )
+        (get_local $ns2\p ) )
+      (drop (call $ns1\array_push
+          (get_global $ns2\pos_stack )
+          (get_local $ns2\p ) ) )
+      (set_local $-ret (get_local $ns2\p ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\restore_pos
+
+  (func $ns2\restore_pos
+    (result i32 )
+    (local $ns2\p i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
       (drop
-        (set_local $ns2\tokens (call $-new_value
-            (i32.const 4 )
-            (i32.const 0 ) ) )
-        (get_local $ns2\tokens ) )
+        (set_local $ns2\p (call $ns1\array_pop (get_global $ns2\pos_stack ) ) )
+        (get_local $ns2\p ) )
       (drop
-        (set_local $ns2\token (call $ns2\read_token ) )
-        (get_local $ns2\token ) )
-      (block (loop
-          (br_if 1 (call $-falsy (call $-unequal
-                (get_local $ns2\token )
-                (i32.const 11 ) ) ) )
-          (block
-            (drop
-              (set_local $ns2\token (call $ns2\read_token ) )
-              (get_local $ns2\token ) )
-            (set_local $-success (i32.const 1 ) ) )
-          (br 0 ) ) )
+        (set_global $ns2\pos (call $-get_from_obj
+            (get_local $ns2\p )
+            (i32.const 23 ) ) )
+        (get_global $ns2\pos ) )
       (drop
-        (set_local $ns2\tokens (call $ns2\read_parens ) )
-        (get_local $ns2\tokens ) )
-      (if
-        (call $-truthy (get_global $ns2\error ) )
-        (then
-          (set_local $-ret (i32.const 0 ) )
-          (br 1 )
-          (set_local $-success (i32.const 1 ) ) )
-        (else (set_local $-success (i32.const 0 ) ) ) )
-      (if
-        (i32.eqz (get_local $-success ) )
-        (then
-          (set_local $-ret (call $ns1\json_encode (get_local $ns2\tokens ) ) )
-          (br 1 )
-          (set_local $-success (i32.const 1 ) ) ) )
+        (set_global $ns2\line (call $-get_from_obj
+            (get_local $ns2\p )
+            (i32.const 24 ) ) )
+        (get_global $ns2\line ) )
+      (drop
+        (set_global $ns2\column (call $-get_from_obj
+            (get_local $ns2\p )
+            (i32.const 25 ) ) )
+        (get_global $ns2\column ) )
+      (set_local $-ret (get_local $ns2\p ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\pop_pos
+
+  (func $ns2\pop_pos
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (set_local $-ret (call $ns1\array_pop (get_global $ns2\pos_stack ) ) )
+      (br 0 )
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
 
@@ -2008,18 +2541,55 @@
     (local $-success i32 )
     (block
       (drop
-        (set_global $ns2\error (call $-add
+        (set_global $ns2\error (call $-or
+            (get_global $ns2\error )
             (call $-add
               (call $-add
                 (call $-add
                   (call $-add
-                    (get_local $ns2\message )
-                    (i32.const 12 ) )
-                  (get_global $ns2\line ) )
-                (i32.const 13 ) )
-              (get_global $ns2\column ) )
-            (i32.const 14 ) ) )
+                    (call $-add
+                      (get_local $ns2\message )
+                      (i32.const 26 ) )
+                    (get_global $ns2\line ) )
+                  (i32.const 27 ) )
+                (get_global $ns2\column ) )
+              (i32.const 28 ) ) ) )
         (get_global $ns2\error ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\unexpected
+
+  (func $ns2\unexpected
+    (param $ns2\actual i32 )
+    (param $ns2\expected i32 )
+    (result i32 )
+    (local $ns2\message i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\message (call $-add
+            (call $-add
+              (i32.const 29 )
+              (get_local $ns2\actual ) )
+            (i32.const 30 ) ) )
+        (get_local $ns2\message ) )
+      (if
+        (call $-truthy (get_local $ns2\expected ) )
+        (then
+          (drop
+            (set_local $ns2\message (call $-add
+                (get_local $ns2\message )
+                (call $-add
+                  (call $-add
+                    (i32.const 31 )
+                    (get_local $ns2\expected ) )
+                  (i32.const 32 ) ) ) )
+            (get_local $ns2\message ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\croak (get_local $ns2\message ) ) )
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
 
@@ -2033,52 +2603,6 @@
       (set_local $-ret (call $-ge
           (get_global $ns2\pos )
           (call $ns1\size_of (get_global $ns2\src ) ) ) )
-      (br 0 )
-      (set_local $-success (i32.const 1 ) ) )
-    (get_local $-ret ) )
-
-  ;; function $ns2\read_char
-
-  (func $ns2\read_char
-    (result i32 )
-    (local $ns2\char i32 )
-    (local $-ret i32 )
-    (local $-success i32 )
-    (block
-      (drop
-        (set_local $ns2\char (call $-add
-            (i32.const 3 )
-            (call $ns1\binary_slice
-              (get_global $ns2\src )
-              (get_global $ns2\pos )
-              (call $-number (f64.const 1 ) ) ) ) )
-        (get_local $ns2\char ) )
-      (drop
-        (set_global $ns2\pos (call $-inc
-            (get_global $ns2\pos )
-            (f64.const 1 ) ) )
-        (get_global $ns2\pos ) )
-      (drop
-        (set_global $ns2\column (call $-inc
-            (get_global $ns2\column )
-            (f64.const 1 ) ) )
-        (get_global $ns2\column ) )
-      (if
-        (call $-truthy (call $-equal
-            (get_local $ns2\char )
-            (i32.const 15 ) ) )
-        (then
-          (drop
-            (set_global $ns2\line (call $-inc
-                (get_global $ns2\line )
-                (f64.const 1 ) ) )
-            (get_global $ns2\line ) )
-          (drop
-            (set_global $ns2\column (call $-number (f64.const 0 ) ) )
-            (get_global $ns2\column ) )
-          (set_local $-success (i32.const 1 ) ) )
-        (else (set_local $-success (i32.const 0 ) ) ) )
-      (set_local $-ret (get_local $ns2\char ) )
       (br 0 )
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
@@ -2100,9 +2624,91 @@
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
 
-  ;; function $ns2\read_token
+  ;; function $ns2\read_char
 
-  (func $ns2\read_token
+  (func $ns2\read_char
+    (result i32 )
+    (local $ns2\char i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\char (call $ns2\peek_char ) )
+        (get_local $ns2\char ) )
+      (drop
+        (set_global $ns2\pos (call $-inc
+            (get_global $ns2\pos )
+            (f64.const 1 ) ) )
+        (get_global $ns2\pos ) )
+      (drop
+        (set_global $ns2\column (call $-inc
+            (get_global $ns2\column )
+            (f64.const 1 ) ) )
+        (get_global $ns2\column ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\char )
+            (i32.const 33 ) ) )
+        (then
+          (drop
+            (set_global $ns2\line (call $-inc
+                (get_global $ns2\line )
+                (f64.const 1 ) ) )
+            (get_global $ns2\line ) )
+          (drop
+            (set_global $ns2\column (call $-number (f64.const 0 ) ) )
+            (get_global $ns2\column ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\char ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\backstep
+
+  (func $ns2\backstep
+    (result i32 )
+    (local $ns2\char i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_global $ns2\pos (call $-inc
+            (get_global $ns2\pos )
+            (f64.const -1 ) ) )
+        (get_global $ns2\pos ) )
+      (drop
+        (set_global $ns2\column (call $-inc
+            (get_global $ns2\column )
+            (f64.const -1 ) ) )
+        (get_global $ns2\column ) )
+      (drop
+        (set_local $ns2\char (call $ns2\peek_char ) )
+        (get_local $ns2\char ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\char )
+            (i32.const 33 ) ) )
+        (then
+          (drop
+            (set_global $ns2\line (call $-inc
+                (get_global $ns2\line )
+                (f64.const -1 ) ) )
+            (get_global $ns2\line ) )
+          (drop
+            (set_global $ns2\column (call $-number (f64.const 0xfffffff ) ) )
+            (get_global $ns2\column ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\char ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_raw_token
+
+  (func $ns2\read_raw_token
     (result i32 )
     (local $ns2\token i32 )
     (local $ns2\char i32 )
@@ -2134,7 +2740,7 @@
       (if
         (call $-truthy (call $-equal
             (get_local $ns2\char )
-            (i32.const 11 ) ) )
+            (i32.const 8 ) ) )
         (then
           (drop
             (set_local $ns2\token (call $ns2\read_char ) )
@@ -2145,7 +2751,7 @@
           (if
             (call $-truthy (call $-equal
                 (get_local $ns2\char )
-                (i32.const 16 ) ) )
+                (i32.const 34 ) ) )
             (then
               (drop
                 (set_local $ns2\token (get_local $ns2\char ) )
@@ -2155,7 +2761,7 @@
                         (call $-equal
                           (call $ns1\binary_search
                             (get_local $ns2\token )
-                            (i32.const 17 )
+                            (i32.const 35 )
                             (i32.const 0 ) )
                           (i32.const 0 ) )
                         (call $-equal
@@ -2180,7 +2786,7 @@
           (i32.eqz (get_local $-success ) )
           (call $-truthy (call $-equal
               (get_local $ns2\char )
-              (i32.const 18 ) ) ) )
+              (i32.const 36 ) ) ) )
         (then
           (drop
             (set_local $ns2\token (call $ns2\read_char ) )
@@ -2191,7 +2797,7 @@
           (i32.eqz (get_local $-success ) )
           (call $-truthy (call $-equal
               (get_local $ns2\char )
-              (i32.const 19 ) ) ) )
+              (i32.const 37 ) ) ) )
         (then
           (drop
             (set_local $ns2\token (call $ns2\read_char ) )
@@ -2203,7 +2809,7 @@
               (br_if 1 (call $-falsy (call $-and
                     (call $-unequal
                       (get_local $ns2\char )
-                      (i32.const 19 ) )
+                      (i32.const 37 ) )
                     (call $-equal
                       (i32.const 1 )
                       (call $ns2\is_eof ) ) ) ) )
@@ -2215,7 +2821,7 @@
                 (if
                   (call $-truthy (call $-equal
                       (get_local $ns2\char )
-                      (i32.const 20 ) ) )
+                      (i32.const 38 ) ) )
                   (then
                     (drop
                       (set_local $ns2\char (call $ns2\read_char ) )
@@ -2231,17 +2837,13 @@
                   (get_local $ns2\char ) )
                 (set_local $-success (i32.const 1 ) ) )
               (br 0 ) ) )
-          (drop (call $ns1\binary_write
-              (get_local $ns2\token )
-              (call $ns1\size_of (get_local $ns2\token ) )
-              (get_local $ns2\char ) ) )
           (set_local $-success (i32.const 1 ) ) ) )
       (if
         (i32.and
           (i32.eqz (get_local $-success ) )
           (call $-truthy (call $-equal
               (get_local $ns2\char )
-              (i32.const 16 ) ) ) )
+              (i32.const 34 ) ) ) )
         (then
           (drop
             (set_local $ns2\token (call $ns2\read_char ) )
@@ -2252,13 +2854,13 @@
           (if
             (call $-truthy (call $-equal
                 (get_local $ns2\char )
-                (i32.const 16 ) ) )
+                (i32.const 34 ) ) )
             (then
               (block (loop
                   (br_if 1 (call $-falsy (call $-and
                         (call $-unequal
                           (get_local $ns2\char )
-                          (i32.const 15 ) )
+                          (i32.const 33 ) )
                         (call $-equal
                           (i32.const 1 )
                           (call $ns2\is_eof ) ) ) ) )
@@ -2286,7 +2888,7 @@
                   (i32.const 0 ) ) ) )
             (get_local $ns2\token ) )
           (drop
-            (set_local $ns2\illegals (i32.const 21 ) )
+            (set_local $ns2\illegals (i32.const 39 ) )
             (get_local $ns2\illegals ) )
           (block (loop
               (br_if 1 (call $-falsy (call $-and
@@ -2326,56 +2928,4201 @@
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
 
-  ;; function $ns2\read_parens
+  ;; function $ns2\read_token
 
-  (func $ns2\read_parens
+  (func $ns2\read_token
     (result i32 )
-    (local $ns2\out i32 )
     (local $ns2\token i32 )
     (local $-ret i32 )
     (local $-success i32 )
     (block
       (drop
-        (set_local $ns2\out (call $-new_value
-            (i32.const 4 )
-            (i32.const 0 ) ) )
-        (get_local $ns2\out ) )
+        (set_local $ns2\token (i32.const 40 ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (call $-equal
+                (call $ns1\binary_search
+                  (get_local $ns2\token )
+                  (i32.const 40 )
+                  (i32.const 0 ) )
+                (call $-number (f64.const 0 ) ) ) ) )
+          (block
+            (drop
+              (set_local $ns2\token (call $ns2\read_raw_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\token )
+            (i32.const 36 ) ) )
+        (then
+          (drop (call $ns2\backstep ) )
+          (drop
+            (set_local $ns2\token (i32.const 0 ) )
+            (get_local $ns2\token ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\token ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\exit_parens
+
+  (func $ns2\exit_parens
+    (result i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
       (drop
-        (set_local $ns2\token (call $ns2\read_token ) )
+        (set_local $ns2\token (i32.const 40 ) )
         (get_local $ns2\token ) )
       (block (loop
           (br_if 1 (call $-falsy (call $-and
                 (get_local $ns2\token )
                 (call $-unequal
                   (get_local $ns2\token )
-                  (i32.const 18 ) ) ) ) )
+                  (i32.const 36 ) ) ) ) )
+          (block
+            (drop
+              (set_local $ns2\token (call $ns2\read_raw_token ) )
+              (get_local $ns2\token ) )
+            (if
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 8 ) ) )
+              (then
+                (drop (call $ns2\exit_parens ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (set_local $-ret (get_local $ns2\token ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\is_name
+
+  (func $ns2\is_name
+    (param $ns2\token i32 )
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (set_local $-ret (call $-equal
+          (call $ns1\binary_search
+            (get_local $ns2\token )
+            (i32.const 41 )
+            (i32.const 0 ) )
+          (call $-number (f64.const 0 ) ) ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\is_string
+
+  (func $ns2\is_string
+    (param $ns2\token i32 )
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (set_local $-ret (call $-equal
+          (call $ns1\binary_search
+            (get_local $ns2\token )
+            (i32.const 37 )
+            (i32.const 0 ) )
+          (call $-number (f64.const 0 ) ) ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\is_number
+
+  (func $ns2\is_number
+    (param $ns2\token i32 )
+    (result i32 )
+    (local $ns2\digits i32 )
+    (local $ns2\char i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\digits (i32.const 42 ) )
+        (get_local $ns2\digits ) )
+      (drop
+        (set_local $ns2\char (call $ns1\binary_slice
+            (get_local $ns2\token )
+            (call $-number (f64.const 0 ) )
+            (call $-number (f64.const 1 ) ) ) )
+        (get_local $ns2\char ) )
+      (set_local $-ret (call $-unequal
+          (call $ns1\binary_search
+            (get_local $ns2\digits )
+            (get_local $ns2\char )
+            (i32.const 0 ) )
+          (i32.const 0 ) ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\token_to_number
+
+  (func $ns2\token_to_number
+    (param $ns2\token i32 )
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\string_lower (call $ns1\binary_slice
+                (get_local $ns2\token )
+                (call $-number (f64.const 0 ) )
+                (call $-number (f64.const 2 ) ) ) )
+            (i32.const 43 ) ) )
+        (then
+          (set_local $-ret (call $ns3\from_hex (call $ns1\binary_slice
+                (get_local $ns2\token )
+                (call $-number (f64.const 2 ) )
+                (call $-number (f64.const 1024 ) ) ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (set_local $-ret (call $ns1\json_decode (get_local $ns2\token ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\translate_code
+
+  (func $ns2\translate_code
+    (param $ns2\bin i32 )
+    (param $ns2\token i32 )
+    (result i32 )
+    (local $ns2\code i32 )
+    (local $ns2\to_code i32 )
+    (local $ns2\autoend i32 )
+    (local $ns2\opcode i32 )
+    (local $ns2\num i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\code (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\code ) )
+      (drop
+        (set_local $ns2\to_code (i32.const 1 ) )
+        (get_local $ns2\to_code ) )
+      (drop
+        (set_local $ns2\autoend (i32.const 1 ) )
+        (get_local $ns2\autoend ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\token )
+            (i32.const 0 ) ) )
+        (then
+          (drop
+            (set_local $ns2\token (call $ns2\read_token ) )
+            (get_local $ns2\token ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
           (block
             (if
               (call $-truthy (call $-equal
                   (get_local $ns2\token )
-                  (i32.const 11 ) ) )
+                  (i32.const 8 ) ) )
               (then
-                (drop (call $ns1\array_push
-                    (get_local $ns2\out )
-                    (call $ns2\read_parens ) ) )
+                (if
+                  (call $-truthy (get_local $ns2\to_code ) )
+                  (then
+                    (drop (call $ns2\translate_code
+                        (get_local $ns2\code )
+                        (i32.const 0 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop (call $ns2\translate_code
+                        (get_local $ns2\bin )
+                        (i32.const 0 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (call $-truthy (call $-equal
+                      (get_local $ns2\to_code )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\to_code (i32.const 5 ) )
+                      (get_local $ns2\to_code ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
                 (set_local $-success (i32.const 1 ) ) )
               (else (set_local $-success (i32.const 0 ) ) ) )
             (if
               (i32.eqz (get_local $-success ) )
               (then
-                (drop (call $ns1\array_push
-                    (get_local $ns2\out )
-                    (get_local $ns2\token ) ) )
+                (drop
+                  (set_local $ns2\opcode (call $-get_from_obj
+                      (get_global $ns4\opcodes )
+                      (get_local $ns2\token ) ) )
+                  (get_local $ns2\opcode ) )
+                (if
+                  (call $-truthy (call $-unequal
+                      (get_local $ns2\opcode )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop (call $ns1\binary_write
+                        (get_local $ns2\code )
+                        (call $ns1\size_of (get_local $ns2\code ) )
+                        (get_local $ns2\opcode ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (call $-truthy (call $-or
+                      (call $-or
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 44 ) )
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 45 ) ) )
+                      (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 46 ) ) ) )
+                  (then
+                    (if
+                      (call $-truthy (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 46 ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\to_code (i32.const 0 ) )
+                          (get_local $ns2\to_code ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (drop
+                          (set_local $ns2\to_code (i32.const 5 ) )
+                          (get_local $ns2\to_code ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (drop
+                      (set_local $ns2\autoend (i32.const 5 ) )
+                      (get_local $ns2\autoend ) )
+                    (drop (call $ns2\save_pos ) )
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_name (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns1\array_unshift
+                            (get_global $ns2\blocks )
+                            (get_local $ns2\num ) ) )
+                        (drop (call $ns2\pop_pos ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (drop (call $ns1\array_unshift
+                            (get_global $ns2\blocks )
+                            (i32.const 41 ) ) )
+                        (drop (call $ns2\restore_pos ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (drop (call $ns2\save_pos ) )
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $-equal
+                          (get_local $ns2\num )
+                          (i32.const 8 ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\num (call $ns2\read_token ) )
+                          (get_local $ns2\num ) )
+                        (if
+                          (call $-truthy (call $-equal
+                              (get_local $ns2\num )
+                              (i32.const 47 ) ) )
+                          (then
+                            (drop
+                              (set_local $ns2\num (call $ns2\read_token ) )
+                              (get_local $ns2\num ) )
+                            (if
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\num )
+                                  (i32.const 48 ) ) )
+                              (then
+                                (drop
+                                  (set_local $ns2\num (call $-number (f64.const 0x7f ) ) )
+                                  (get_local $ns2\num ) )
+                                (set_local $-success (i32.const 1 ) ) )
+                              (else (set_local $-success (i32.const 0 ) ) ) )
+                            (if
+                              (i32.and
+                                (i32.eqz (get_local $-success ) )
+                                (call $-truthy (call $-equal
+                                    (get_local $ns2\num )
+                                    (i32.const 49 ) ) ) )
+                              (then
+                                (drop
+                                  (set_local $ns2\num (call $-number (f64.const 0x7e ) ) )
+                                  (get_local $ns2\num ) )
+                                (set_local $-success (i32.const 1 ) ) ) )
+                            (if
+                              (i32.and
+                                (i32.eqz (get_local $-success ) )
+                                (call $-truthy (call $-equal
+                                    (get_local $ns2\num )
+                                    (i32.const 50 ) ) ) )
+                              (then
+                                (drop
+                                  (set_local $ns2\num (call $-number (f64.const 0x7d ) ) )
+                                  (get_local $ns2\num ) )
+                                (set_local $-success (i32.const 1 ) ) ) )
+                            (if
+                              (i32.and
+                                (i32.eqz (get_local $-success ) )
+                                (call $-truthy (call $-equal
+                                    (get_local $ns2\num )
+                                    (i32.const 51 ) ) ) )
+                              (then
+                                (drop
+                                  (set_local $ns2\num (call $-number (f64.const 0x7c ) ) )
+                                  (get_local $ns2\num ) )
+                                (set_local $-success (i32.const 1 ) ) ) )
+                            (drop (call $ns2\pop_pos ) )
+                            (set_local $-success (i32.const 1 ) ) )
+                          (else (set_local $-success (i32.const 0 ) ) ) )
+                        (if
+                          (i32.eqz (get_local $-success ) )
+                          (then
+                            (drop
+                              (set_local $ns2\num (call $-number (f64.const 0x40 ) ) )
+                              (get_local $ns2\num ) )
+                            (drop (call $ns2\restore_pos ) )
+                            (set_local $-success (i32.const 1 ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (drop
+                          (set_local $ns2\num (call $-number (f64.const 0x40 ) ) )
+                          (get_local $ns2\num ) )
+                        (drop (call $ns2\restore_pos ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (drop (call $ns3\write_varuint
+                        (get_local $ns2\code )
+                        (get_local $ns2\num ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 52 ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\to_code (i32.const 5 ) )
+                      (get_local $ns2\to_code ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 53 ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\to_code (i32.const 1 ) )
+                      (get_local $ns2\to_code ) )
+                    (drop
+                      (set_local $ns2\autoend (i32.const 1 ) )
+                      (get_local $ns2\autoend ) )
+                    (drop (call $ns1\array_shift (get_global $ns2\blocks ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-or
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 54 ) )
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 55 ) ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns2\token_to_number (get_local $ns2\num ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.and
+                        (i32.eqz (get_local $-success ) )
+                        (call $-truthy (call $ns2\is_name (get_local $ns2\num ) ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns1\array_search
+                              (get_global $ns2\blocks )
+                              (get_local $ns2\num )
+                              (i32.const 0 ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 56 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 57 ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns2\token_to_number (get_local $ns2\num ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.and
+                        (i32.eqz (get_local $-success ) )
+                        (call $-truthy (call $ns2\is_name (get_local $ns2\num ) ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns1\array_search
+                              (call $-get_from_obj
+                                (call $-get_from_obj
+                                  (get_global $ns2\sections )
+                                  (i32.const 22 ) )
+                                (i32.const 14 ) )
+                              (get_local $ns2\num )
+                              (i32.const 0 ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 58 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (call $ns1\binary_search
+                          (get_local $ns2\token )
+                          (i32.const 59 )
+                          (i32.const 0 ) )
+                        (call $-number (f64.const 3 ) ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns2\token_to_number (get_local $ns2\num ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.and
+                        (i32.eqz (get_local $-success ) )
+                        (call $-truthy (call $ns2\is_name (get_local $ns2\num ) ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns1\array_search
+                              (get_global $ns2\local_names )
+                              (get_local $ns2\num )
+                              (i32.const 0 ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 60 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (call $ns1\binary_search
+                          (get_local $ns2\token )
+                          (i32.const 61 )
+                          (i32.const 0 ) )
+                        (call $-number (f64.const 3 ) ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns2\token_to_number (get_local $ns2\num ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.and
+                        (i32.eqz (get_local $-success ) )
+                        (call $-truthy (call $ns2\is_name (get_local $ns2\num ) ) ) )
+                      (then
+                        (drop (call $ns3\write_varuint
+                            (get_local $ns2\code )
+                            (call $ns1\array_search
+                              (call $-get_from_obj
+                                (call $-get_from_obj
+                                  (get_global $ns2\sections )
+                                  (i32.const 22 ) )
+                                (i32.const 17 ) )
+                              (get_local $ns2\num )
+                              (i32.const 0 ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 62 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-or
+                        (call $-equal
+                          (call $ns1\binary_search
+                            (get_local $ns2\token )
+                            (i32.const 63 )
+                            (i32.const 0 ) )
+                          (call $-number (f64.const 3 ) ) )
+                        (call $-equal
+                          (call $ns1\binary_search
+                            (get_local $ns2\token )
+                            (i32.const 64 )
+                            (i32.const 0 ) )
+                          (call $-number (f64.const 3 ) ) ) ) ) )
+                  (then
+                    (drop (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns1\binary_search
+                          (get_local $ns2\token )
+                          (i32.const 65 )
+                          (i32.const 0 ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\num (call $-number (f64.const 3 ) ) )
+                          (get_local $ns2\num ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (call $-truthy (call $ns1\binary_search
+                          (get_local $ns2\token )
+                          (i32.const 66 )
+                          (i32.const 0 ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\num (call $-number (f64.const 2 ) ) )
+                          (get_local $ns2\num ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (call $-truthy (call $ns1\binary_search
+                          (get_local $ns2\token )
+                          (i32.const 67 )
+                          (i32.const 0 ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\num (call $-number (f64.const 1 ) ) )
+                          (get_local $ns2\num ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (call $-truthy (call $ns1\binary_search
+                          (get_local $ns2\token )
+                          (i32.const 68 )
+                          (i32.const 0 ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\num (call $-number (f64.const 0 ) ) )
+                          (get_local $ns2\num ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (drop (call $ns3\write_varuint
+                        (get_local $ns2\code )
+                        (get_local $ns2\num ) ) )
+                    (drop (call $ns3\write_varuint
+                        (get_local $ns2\code )
+                        (call $-number (f64.const 0 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-or
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 69 ) )
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 70 ) ) ) ) )
+                  (then
+                    (drop (call $ns3\write_varuint
+                        (get_local $ns2\code )
+                        (call $-number (f64.const 0 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-or
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 71 ) )
+                        (call $-equal
+                          (get_local $ns2\token )
+                          (i32.const 72 ) ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns1\binary_write
+                            (get_local $ns2\code )
+                            (call $ns1\size_of (get_local $ns2\code ) )
+                            (call $ns3\token_to_varint (get_local $ns2\num ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 73 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 74 ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns1\binary_write
+                            (get_local $ns2\code )
+                            (call $ns1\size_of (get_local $ns2\code ) )
+                            (call $ns3\number_to_f32bin (call $ns2\token_to_number (get_local $ns2\num ) ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 73 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 75 ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\num (call $ns2\read_token ) )
+                      (get_local $ns2\num ) )
+                    (if
+                      (call $-truthy (call $ns2\is_number (get_local $ns2\num ) ) )
+                      (then
+                        (drop (call $ns1\binary_write
+                            (get_local $ns2\code )
+                            (call $ns1\size_of (get_local $ns2\code ) )
+                            (call $ns3\number_to_f64bin (call $ns2\token_to_number (get_local $ns2\num ) ) ) ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\num )
+                            (i32.const 73 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
                 (set_local $-success (i32.const 1 ) ) ) )
             (drop
               (set_local $ns2\token (call $ns2\read_token ) )
               (get_local $ns2\token ) )
             (set_local $-success (i32.const 1 ) ) )
           (br 0 ) ) )
-      (set_local $-ret (get_local $ns2\out ) )
+      (if
+        (call $-truthy (get_local $ns2\autoend ) )
+        (then
+          (drop (call $ns1\binary_write
+              (get_local $ns2\code )
+              (call $ns1\size_of (get_local $ns2\code ) )
+              (call $-number (f64.const 0x0b ) ) ) )
+          (drop (call $ns1\array_shift (get_global $ns2\blocks ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (drop (call $ns1\binary_write
+          (get_local $ns2\bin )
+          (call $ns1\size_of (get_local $ns2\bin ) )
+          (get_local $ns2\code ) ) )
+      (set_local $-ret (get_local $ns2\bin ) )
       (br 0 )
       (set_local $-success (i32.const 1 ) ) )
     (get_local $-ret ) )
+
+  ;; function $ns2\read_names
+
+  (func $ns2\read_names
+    (result i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 8 ) ) )
+              (then
+                (drop
+                  (set_local $ns2\token (call $ns2\read_token ) )
+                  (get_local $ns2\token ) )
+                (if
+                  (call $-truthy (call $-equal
+                      (get_local $ns2\token )
+                      (i32.const 12 ) ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 12 ) )
+                        (call $ns2\read_name ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 13 ) ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\token (call $ns2\read_token ) )
+                      (get_local $ns2\token ) )
+                    (drop
+                      (set_local $ns2\token (call $ns2\read_token ) )
+                      (get_local $ns2\token ) )
+                    (drop (call $ns2\read_names ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 15 ) ) ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 15 ) )
+                        (call $ns2\read_name ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 16 ) ) ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 16 ) )
+                        (call $ns2\read_name ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 76 ) ) ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 14 ) )
+                        (call $ns2\read_name ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 17 ) ) ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 17 ) )
+                        (call $ns2\read_name ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop (call $ns2\exit_parens ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 9 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_name
+
+  (func $ns2\read_name
+    (result i32 )
+    (local $ns2\token i32 )
+    (local $ns2\name i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) )
+        (then
+          (drop
+            (set_local $ns2\name (get_local $ns2\token ) )
+            (get_local $ns2\name ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\token )
+            (i32.const 8 ) ) )
+        (then
+          (drop (call $ns2\exit_parens ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (set_local $-ret (get_local $ns2\name ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_module
+
+  (func $ns2\read_module
+    (result i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 8 ) ) )
+              (then
+                (drop
+                  (set_local $ns2\token (call $ns2\read_token ) )
+                  (get_local $ns2\token ) )
+                (if
+                  (call $-truthy (call $-equal
+                      (get_local $ns2\token )
+                      (i32.const 12 ) ) )
+                  (then
+                    (drop (call $ns2\read_type ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 13 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_import ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 15 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_table_type (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 16 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_memory_type (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 76 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_func_type (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 17 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_global_type (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 18 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_export (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 19 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_start (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 77 ) ) ) )
+                  (then
+                    (drop (call $ns2\read_element (i32.const 5 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop (call $ns2\exit_parens ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 9 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_type
+
+  (func $ns2\read_type
+    (result i32 )
+    (local $ns2\type i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop (get_local $ns2\type ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) )
+        (then
+          (drop
+            (set_local $ns2\token (call $ns2\read_token ) )
+            (get_local $ns2\token ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\token )
+            (i32.const 8 ) ) )
+        (then
+          (drop
+            (set_local $ns2\token (call $ns2\read_token ) )
+            (get_local $ns2\token ) )
+          (if
+            (call $-truthy (call $-equal
+                (get_local $ns2\token )
+                (i32.const 76 ) ) )
+            (then
+              (drop
+                (set_local $ns2\type (call $ns2\read_func_type (i32.const 0 ) ) )
+                (get_local $ns2\type ) )
+              (set_local $-success (i32.const 1 ) ) )
+            (else (set_local $-success (i32.const 0 ) ) ) )
+          (if
+            (i32.eqz (get_local $-success ) )
+            (then
+              (set_local $-ret (call $ns2\unexpected
+                  (get_local $ns2\token )
+                  (i32.const 78 ) ) )
+              (br 2 )
+              (set_local $-success (i32.const 1 ) ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 9 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (set_local $-ret (get_local $ns2\type ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_import
+
+  (func $ns2\read_import
+    (result i32 )
+    (local $ns2\_import i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\_import (call $-new_value
+            (i32.const 5 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\_import ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $ns2\is_string (get_local $ns2\token ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\_import )
+                    (i32.const 10 )
+                    (call $-add
+                      (i32.const 3 )
+                      (call $ns1\binary_slice
+                        (get_local $ns2\token )
+                        (call $-number (f64.const 1 ) )
+                        (call $ns1\size_of (get_local $ns2\token ) ) ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\_import )
+                    (i32.const 10 ) ) )
+                (drop
+                  (set_local $ns2\token (call $ns2\read_token ) )
+                  (get_local $ns2\token ) )
+                (if
+                  (call $-truthy (call $ns2\is_string (get_local $ns2\token ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 79 )
+                        (call $-add
+                          (i32.const 3 )
+                          (call $ns1\binary_slice
+                            (get_local $ns2\token )
+                            (call $-number (f64.const 1 ) )
+                            (call $ns1\size_of (get_local $ns2\token ) ) ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 79 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (set_local $-ret (call $ns2\unexpected
+                        (get_local $ns2\token )
+                        (i32.const 80 ) ) )
+                    (br 5 )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 8 ) ) ) )
+              (then
+                (drop
+                  (set_local $ns2\token (call $ns2\read_token ) )
+                  (get_local $ns2\token ) )
+                (if
+                  (call $-truthy (call $-equal
+                      (get_local $ns2\token )
+                      (i32.const 76 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 )
+                        (call $-number (f64.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 ) ) )
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 )
+                        (call $ns2\read_func_type (i32.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 15 ) ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 )
+                        (call $-number (f64.const 1 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 ) ) )
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 )
+                        (call $ns2\read_table_type (i32.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 16 ) ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 )
+                        (call $-number (f64.const 2 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 ) ) )
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 )
+                        (call $ns2\read_memory_type (i32.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 17 ) ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 )
+                        (call $-number (f64.const 3 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 81 ) ) )
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 )
+                        (call $ns2\read_global_type (i32.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (set_local $-ret (call $ns2\unexpected
+                        (get_local $ns2\token )
+                        (i32.const 82 ) ) )
+                    (br 5 )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 0 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (drop (call $ns1\array_push
+          (call $-get_from_obj
+            (get_global $ns2\sections )
+            (i32.const 13 ) )
+          (get_local $ns2\_import ) ) )
+      (set_local $-ret (get_local $ns2\_import ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_table_type
+
+  (func $ns2\read_table_type
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\type i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\type (call $-new_value
+            (i32.const 5 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\type ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+              (then
+                (if
+                  (call $-truthy (call $-equal
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 83 ) )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\type )
+                        (i32.const 83 )
+                        (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 83 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\type )
+                        (i32.const 84 )
+                        (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 84 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+              (then (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 48 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 )
+                    (call $-number (f64.const 0x7f ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 49 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 )
+                    (call $-number (f64.const 0x7e ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 50 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 )
+                    (call $-number (f64.const 0x7d ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 51 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 )
+                    (call $-number (f64.const 0x7c ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 86 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 )
+                    (call $-number (f64.const 0x70 ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 76 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 )
+                    (call $-number (f64.const 0x60 ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 85 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 0 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (if
+        (call $-truthy (get_local $ns2\save ) )
+        (then
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 15 ) )
+              (get_local $ns2\type ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\type ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_memory_type
+
+  (func $ns2\read_memory_type
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\type i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\type (call $-new_value
+            (i32.const 5 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\type ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+              (then
+                (if
+                  (call $-truthy (call $-equal
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 83 ) )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\type )
+                        (i32.const 83 )
+                        (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 83 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (call $-get_from_obj
+                          (get_local $ns2\type )
+                          (i32.const 84 ) )
+                        (i32.const 0 ) ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\type )
+                        (i32.const 84 )
+                        (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 84 ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (set_local $-ret (call $ns2\unexpected
+                        (get_local $ns2\token )
+                        (i32.const 0 ) ) )
+                    (br 5 )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+              (then (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 0 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (if
+        (call $-truthy (get_local $ns2\save ) )
+        (then
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 16 ) )
+              (get_local $ns2\type ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\type ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_global_type
+
+  (func $ns2\read_global_type
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\type i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\type (call $-new_value
+            (i32.const 5 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\type ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 8 ) ) )
+              (then
+                (if
+                  (call $-truthy (call $-get_from_obj
+                      (get_local $ns2\type )
+                      (i32.const 87 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\type )
+                        (i32.const 88 )
+                        (call $ns2\translate_code
+                          (call $-new_value
+                            (i32.const 6 )
+                            (i32.const 0 ) )
+                          (i32.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\type )
+                        (i32.const 88 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop
+                      (set_local $ns2\type (call $-add
+                          (get_local $ns2\type )
+                          (call $ns2\read_global_type (i32.const 0 ) ) ) )
+                      (get_local $ns2\type ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+              (then (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 89 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 90 )
+                    (call $-number (f64.const 1 ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 90 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 48 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 )
+                    (call $-number (f64.const 0x7f ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 49 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 )
+                    (call $-number (f64.const 0x7e ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 50 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 )
+                    (call $-number (f64.const 0x7d ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 51 ) ) ) )
+              (then
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 )
+                    (call $-number (f64.const 0x7c ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 87 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 0 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (if
+        (call $-truthy (get_local $ns2\save ) )
+        (then
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 17 ) )
+              (get_local $ns2\type ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\type ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_func_type
+
+  (func $ns2\read_func_type
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\type i32 )
+    (local $-obj0 i32 )
+    (local $ns2\function i32 )
+    (local $-obj1 i32 )
+    (local $ns2\token i32 )
+    (local $ns2\type_index i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\type
+          (tee_local $-obj0 (call $-new_value
+              (i32.const 5 )
+              (i32.const 0 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 91 )
+              (call $-number (f64.const 0x60 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 91 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 92 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 92 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 93 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 93 ) ) ) )
+        (get_local $ns2\type ) )
+      (drop
+        (set_global $ns2\local_names (call $-new_value
+            (i32.const 4 )
+            (i32.const 0 ) ) )
+        (get_global $ns2\local_names ) )
+      (drop
+        (set_global $ns2\blocks (call $-new_value
+            (i32.const 4 )
+            (i32.const 0 ) ) )
+        (get_global $ns2\blocks ) )
+      (drop
+        (set_local $ns2\function
+          (tee_local $-obj1 (call $-new_value
+              (i32.const 5 )
+              (i32.const 0 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj1 )
+              (i32.const 94 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj1 )
+              (i32.const 94 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj1 )
+              (i32.const 95 )
+              (get_global $ns2\local_names ) )
+            (call $-get_from_obj
+              (get_local $-obj1 )
+              (i32.const 95 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj1 )
+              (i32.const 21 )
+              (call $-new_value
+                (i32.const 6 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj1 )
+              (i32.const 21 ) ) ) )
+        (get_local $ns2\function ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) )
+              (then (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 8 ) ) ) )
+              (then
+                (drop
+                  (set_local $ns2\token (call $ns2\read_token ) )
+                  (get_local $ns2\token ) )
+                (if
+                  (call $-truthy (call $-equal
+                      (get_local $ns2\token )
+                      (i32.const 12 ) ) )
+                  (then
+                    (drop
+                      (set_local $ns2\token (call $ns2\read_token ) )
+                      (get_local $ns2\token ) )
+                    (if
+                      (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\type_index (call $ns1\array_search
+                              (call $-get_from_obj
+                                (call $-get_from_obj
+                                  (get_global $ns2\sections )
+                                  (i32.const 22 ) )
+                                (i32.const 12 ) )
+                              (get_local $ns2\token )
+                              (i32.const 0 ) ) )
+                          (get_local $ns2\type_index ) )
+                        (set_local $-success (i32.const 1 ) ) )
+                      (else (set_local $-success (i32.const 0 ) ) ) )
+                    (if
+                      (i32.and
+                        (i32.eqz (get_local $-success ) )
+                        (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) ) )
+                      (then
+                        (drop
+                          (set_local $ns2\type_index (call $ns2\token_to_number (i32.const 0 ) ) )
+                          (get_local $ns2\type_index ) )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (if
+                      (i32.eqz (get_local $-success ) )
+                      (then
+                        (set_local $-ret (call $ns2\unexpected
+                            (get_local $ns2\token )
+                            (i32.const 96 ) ) )
+                        (br 6 )
+                        (set_local $-success (i32.const 1 ) ) ) )
+                    (drop (call $ns2\exit_parens ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 97 ) ) ) )
+                  (then
+                    (block (loop
+                        (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+                        (block
+                          (if
+                            (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\function )
+                                    (i32.const 95 ) )
+                                  (get_local $ns2\token ) ) )
+                              (set_local $-success (i32.const 1 ) ) )
+                            (else (set_local $-success (i32.const 0 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 48 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 92 ) )
+                                  (call $-number (f64.const 0x7f ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 49 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 92 ) )
+                                  (call $-number (f64.const 0x7e ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 50 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 92 ) )
+                                  (call $-number (f64.const 0x7d ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 51 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 92 ) )
+                                  (call $-number (f64.const 0x7c ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (drop
+                            (set_local $ns2\token (call $ns2\read_token ) )
+                            (get_local $ns2\token ) )
+                          (set_local $-success (i32.const 1 ) ) )
+                        (br 0 ) ) )
+                    (drop (call $ns2\exit_parens ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 98 ) ) ) )
+                  (then
+                    (block (loop
+                        (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+                        (block
+                          (if
+                            (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\function )
+                                    (i32.const 95 ) )
+                                  (get_local $ns2\token ) ) )
+                              (set_local $-success (i32.const 1 ) ) )
+                            (else (set_local $-success (i32.const 0 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 48 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\function )
+                                    (i32.const 94 ) )
+                                  (call $-number (f64.const 0x7f ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 49 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\function )
+                                    (i32.const 94 ) )
+                                  (call $-number (f64.const 0x7e ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 50 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\function )
+                                    (i32.const 94 ) )
+                                  (call $-number (f64.const 0x7d ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 51 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\function )
+                                    (i32.const 94 ) )
+                                  (call $-number (f64.const 0x7c ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (drop
+                            (set_local $ns2\token (call $ns2\read_token ) )
+                            (get_local $ns2\token ) )
+                          (set_local $-success (i32.const 1 ) ) )
+                        (br 0 ) ) )
+                    (drop (call $ns2\exit_parens ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.and
+                    (i32.eqz (get_local $-success ) )
+                    (call $-truthy (call $-equal
+                        (get_local $ns2\token )
+                        (i32.const 47 ) ) ) )
+                  (then
+                    (block (loop
+                        (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+                        (block
+                          (if
+                            (call $-truthy (call $-equal
+                                (get_local $ns2\token )
+                                (i32.const 48 ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 93 ) )
+                                  (call $-number (f64.const 0x7f ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) )
+                            (else (set_local $-success (i32.const 0 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 49 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 93 ) )
+                                  (call $-number (f64.const 0x7e ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 50 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 93 ) )
+                                  (call $-number (f64.const 0x7d ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (if
+                            (i32.and
+                              (i32.eqz (get_local $-success ) )
+                              (call $-truthy (call $-equal
+                                  (get_local $ns2\token )
+                                  (i32.const 51 ) ) ) )
+                            (then
+                              (drop (call $ns1\array_push
+                                  (call $-get_from_obj
+                                    (get_local $ns2\type )
+                                    (i32.const 93 ) )
+                                  (call $-number (f64.const 0x7c ) ) ) )
+                              (set_local $-success (i32.const 1 ) ) ) )
+                          (drop
+                            (set_local $ns2\token (call $ns2\read_token ) )
+                            (get_local $ns2\token ) )
+                          (set_local $-success (i32.const 1 ) ) )
+                        (br 0 ) ) )
+                    (drop (call $ns2\exit_parens ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop (call $ns2\translate_code
+                        (call $-get_from_obj
+                          (get_local $ns2\function )
+                          (i32.const 21 ) )
+                        (get_local $ns2\token ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (drop (call $ns2\translate_code
+                    (call $-get_from_obj
+                      (get_local $ns2\function )
+                      (i32.const 21 ) )
+                    (get_local $ns2\token ) ) )
+                (drop (call $ns2\backstep ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\type_index )
+            (i32.const 0 ) ) )
+        (then
+          (drop
+            (set_local $ns2\type (call $ns1\json_encode (get_local $ns2\type ) ) )
+            (get_local $ns2\type ) )
+          (drop
+            (set_local $ns2\type_index (call $ns1\array_search
+                (call $-get_from_obj
+                  (get_global $ns2\sections )
+                  (i32.const 12 ) )
+                (get_local $ns2\type )
+                (i32.const 0 ) ) )
+            (get_local $ns2\type_index ) )
+          (if
+            (call $-truthy (call $-equal
+                (get_local $ns2\type_index )
+                (i32.const 0 ) ) )
+            (then
+              (drop
+                (set_local $ns2\type_index (call $ns1\array_length (call $-get_from_obj
+                      (get_global $ns2\sections )
+                      (i32.const 12 ) ) ) )
+                (get_local $ns2\type_index ) )
+              (drop (call $ns1\array_push
+                  (call $-get_from_obj
+                    (get_global $ns2\sections )
+                    (i32.const 12 ) )
+                  (get_local $ns2\type ) ) )
+              (set_local $-success (i32.const 1 ) ) )
+            (else (set_local $-success (i32.const 0 ) ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (call $-truthy (get_local $ns2\save ) )
+        (then
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 14 ) )
+              (get_local $ns2\type_index ) ) )
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 21 ) )
+              (get_local $ns2\function ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\type_index ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_export
+
+  (func $ns2\read_export
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\xport i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\xport (call $-new_value
+            (i32.const 5 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\xport ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $ns2\is_string (get_local $ns2\token ) ) )
+        (then
+          (drop
+            (call $-set_to_obj
+              (get_local $ns2\xport )
+              (i32.const 79 )
+              (call $ns1\binary_slice
+                (get_local $ns2\token )
+                (call $-number (f64.const 1 ) )
+                (call $ns1\size_of (get_local $ns2\token ) ) ) )
+            (call $-get_from_obj
+              (get_local $ns2\xport )
+              (i32.const 79 ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 80 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $-equal
+            (get_local $ns2\token )
+            (i32.const 8 ) ) )
+        (then
+          (drop
+            (set_local $ns2\token (call $ns2\read_token ) )
+            (get_local $ns2\token ) )
+          (if
+            (call $-truthy (call $-equal
+                (get_local $ns2\token )
+                (i32.const 76 ) ) )
+            (then
+              (drop
+                (call $-set_to_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 )
+                  (call $-number (f64.const 0 ) ) )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 ) ) )
+              (drop
+                (set_local $ns2\token (call $ns2\read_token ) )
+                (get_local $ns2\token ) )
+              (if
+                (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (else (set_local $-success (i32.const 0 ) ) ) )
+              (if
+                (i32.and
+                  (i32.eqz (get_local $-success ) )
+                  (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns1\array_search
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 14 ) )
+                        (get_local $ns2\token )
+                        (i32.const 0 ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (if
+                (i32.eqz (get_local $-success ) )
+                (then
+                  (set_local $-ret (call $ns2\unexpected
+                      (get_local $ns2\token )
+                      (i32.const 100 ) ) )
+                  (br 3 )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (drop (call $ns2\exit_parens ) )
+              (set_local $-success (i32.const 1 ) ) )
+            (else (set_local $-success (i32.const 0 ) ) ) )
+          (if
+            (i32.and
+              (i32.eqz (get_local $-success ) )
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 15 ) ) ) )
+            (then
+              (drop
+                (call $-set_to_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 )
+                  (call $-number (f64.const 1 ) ) )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 ) ) )
+              (drop
+                (set_local $ns2\token (call $ns2\read_token ) )
+                (get_local $ns2\token ) )
+              (if
+                (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (else (set_local $-success (i32.const 0 ) ) ) )
+              (if
+                (i32.and
+                  (i32.eqz (get_local $-success ) )
+                  (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns1\array_search
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 15 ) )
+                        (get_local $ns2\token )
+                        (i32.const 0 ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (if
+                (i32.eqz (get_local $-success ) )
+                (then
+                  (set_local $-ret (call $ns2\unexpected
+                      (get_local $ns2\token )
+                      (i32.const 100 ) ) )
+                  (br 3 )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (drop (call $ns2\exit_parens ) )
+              (set_local $-success (i32.const 1 ) ) ) )
+          (if
+            (i32.and
+              (i32.eqz (get_local $-success ) )
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 16 ) ) ) )
+            (then
+              (drop
+                (call $-set_to_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 )
+                  (call $-number (f64.const 2 ) ) )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 ) ) )
+              (drop
+                (set_local $ns2\token (call $ns2\read_token ) )
+                (get_local $ns2\token ) )
+              (if
+                (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (else (set_local $-success (i32.const 0 ) ) ) )
+              (if
+                (i32.and
+                  (i32.eqz (get_local $-success ) )
+                  (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns1\array_search
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 16 ) )
+                        (get_local $ns2\token )
+                        (i32.const 0 ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (if
+                (i32.eqz (get_local $-success ) )
+                (then
+                  (set_local $-ret (call $ns2\unexpected
+                      (get_local $ns2\token )
+                      (i32.const 100 ) ) )
+                  (br 3 )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (drop (call $ns2\exit_parens ) )
+              (set_local $-success (i32.const 1 ) ) ) )
+          (if
+            (i32.and
+              (i32.eqz (get_local $-success ) )
+              (call $-truthy (call $-equal
+                  (get_local $ns2\token )
+                  (i32.const 17 ) ) ) )
+            (then
+              (drop
+                (call $-set_to_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 )
+                  (call $-number (f64.const 3 ) ) )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 ) ) )
+              (drop
+                (set_local $ns2\token (call $ns2\read_token ) )
+                (get_local $ns2\token ) )
+              (if
+                (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (else (set_local $-success (i32.const 0 ) ) ) )
+              (if
+                (i32.and
+                  (i32.eqz (get_local $-success ) )
+                  (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+                (then
+                  (drop
+                    (call $-set_to_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 )
+                      (call $ns1\array_search
+                        (call $-get_from_obj
+                          (call $-get_from_obj
+                            (get_global $ns2\sections )
+                            (i32.const 22 ) )
+                          (i32.const 17 ) )
+                        (get_local $ns2\token )
+                        (i32.const 0 ) ) )
+                    (call $-get_from_obj
+                      (get_local $ns2\xport )
+                      (i32.const 99 ) ) )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (if
+                (i32.eqz (get_local $-success ) )
+                (then
+                  (set_local $-ret (call $ns2\unexpected
+                      (get_local $ns2\token )
+                      (i32.const 100 ) ) )
+                  (br 3 )
+                  (set_local $-success (i32.const 1 ) ) ) )
+              (drop (call $ns2\exit_parens ) )
+              (set_local $-success (i32.const 1 ) ) ) )
+          (if
+            (i32.eqz (get_local $-success ) )
+            (then
+              (set_local $-ret (call $ns2\unexpected
+                  (get_local $ns2\token )
+                  (i32.const 81 ) ) )
+              (br 2 )
+              (set_local $-success (i32.const 1 ) ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 9 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (if
+        (call $-truthy (get_local $ns2\save ) )
+        (then
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 18 ) )
+              (get_local $ns2\xport ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_start
+
+  (func $ns2\read_start
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (if
+        (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+        (then
+          (drop
+            (call $-set_to_obj
+              (get_global $ns2\sections )
+              (i32.const 19 )
+              (call $ns2\token_to_number (get_local $ns2\token ) ) )
+            (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 19 ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.and
+          (i32.eqz (get_local $-success ) )
+          (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+        (then
+          (drop
+            (call $-set_to_obj
+              (get_global $ns2\sections )
+              (i32.const 19 )
+              (call $ns1\array_search
+                (call $-get_from_obj
+                  (call $-get_from_obj
+                    (get_global $ns2\sections )
+                    (i32.const 22 ) )
+                  (i32.const 14 ) )
+                (get_local $ns2\token )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 19 ) ) )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (set_local $-ret (call $ns2\unexpected
+              (get_local $ns2\token )
+              (i32.const 101 ) ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\read_element
+
+  (func $ns2\read_element
+    (param $ns2\save i32 )
+    (result i32 )
+    (local $ns2\elem i32 )
+    (local $-obj0 i32 )
+    (local $ns2\token i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_local $ns2\elem
+          (tee_local $-obj0 (call $-new_value
+              (i32.const 5 )
+              (i32.const 0 ) ) )
+          (drop
+            (call $-set_to_obj
+              (get_local $-obj0 )
+              (i32.const 102 )
+              (call $-new_value
+                (i32.const 4 )
+                (i32.const 0 ) ) )
+            (call $-get_from_obj
+              (get_local $-obj0 )
+              (i32.const 102 ) ) ) )
+        (get_local $ns2\elem ) )
+      (drop
+        (set_local $ns2\token (call $ns2\read_token ) )
+        (get_local $ns2\token ) )
+      (block (loop
+          (br_if 1 (call $-falsy (get_local $ns2\token ) ) )
+          (block
+            (if
+              (call $-truthy (call $ns2\is_number (get_local $ns2\token ) ) )
+              (then
+                (if
+                  (call $-truthy (call $-equal
+                      (call $-get_from_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 ) )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 )
+                        (call $ns2\token_to_number (get_local $ns2\token ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (get_local $ns2\elem )
+                          (i32.const 102 ) )
+                        (call $ns2\token_to_number (get_local $ns2\token ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $ns2\is_name (get_local $ns2\token ) ) ) )
+              (then
+                (if
+                  (call $-truthy (call $-equal
+                      (call $-get_from_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 ) )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 )
+                        (call $ns1\array_search
+                          (call $-get_from_obj
+                            (call $-get_from_obj
+                              (get_global $ns2\sections )
+                              (i32.const 22 ) )
+                            (i32.const 15 ) )
+                          (get_local $ns2\token )
+                          (i32.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (if
+                  (i32.eqz (get_local $-success ) )
+                  (then
+                    (drop (call $ns1\array_push
+                        (call $-get_from_obj
+                          (get_local $ns2\elem )
+                          (i32.const 102 ) )
+                        (call $ns1\array_search
+                          (call $-get_from_obj
+                            (call $-get_from_obj
+                              (get_global $ns2\sections )
+                              (i32.const 22 ) )
+                            (i32.const 14 ) )
+                          (get_local $ns2\token )
+                          (i32.const 0 ) ) ) )
+                    (set_local $-success (i32.const 1 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.and
+                (i32.eqz (get_local $-success ) )
+                (call $-truthy (call $-equal
+                    (get_local $ns2\token )
+                    (i32.const 8 ) ) ) )
+              (then
+                (if
+                  (call $-truthy (call $-equal
+                      (call $-get_from_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 ) )
+                      (i32.const 0 ) ) )
+                  (then
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 )
+                        (call $-number (f64.const 0 ) ) )
+                      (call $-get_from_obj
+                        (get_local $ns2\elem )
+                        (i32.const 99 ) ) )
+                    (set_local $-success (i32.const 1 ) ) )
+                  (else (set_local $-success (i32.const 0 ) ) ) )
+                (drop
+                  (call $-set_to_obj
+                    (get_local $ns2\elem )
+                    (i32.const 103 )
+                    (call $ns2\translate_code
+                      (call $-new_value
+                        (i32.const 6 )
+                        (i32.const 0 ) )
+                      (i32.const 0 ) ) )
+                  (call $-get_from_obj
+                    (get_local $ns2\elem )
+                    (i32.const 103 ) ) )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (if
+              (i32.eqz (get_local $-success ) )
+              (then
+                (set_local $-ret (call $ns2\unexpected
+                    (get_local $ns2\token )
+                    (i32.const 0 ) ) )
+                (br 4 )
+                (set_local $-success (i32.const 1 ) ) ) )
+            (drop
+              (set_local $ns2\token (call $ns2\read_token ) )
+              (get_local $ns2\token ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns2\exit_parens ) )
+      (if
+        (call $-truthy (get_local $ns2\save ) )
+        (then
+          (drop (call $ns1\array_push
+              (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 20 ) )
+              (get_local $ns2\elem ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (set_local $-ret (get_local $ns2\elem ) )
+      (br 0 )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_module
+
+  (func $ns2\write_module
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop
+        (set_global $ns2\wasm (call $ns1\binary_string (call $-number (f64.const 8 ) ) ) )
+        (get_global $ns2\wasm ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 1 ) )
+          (i32.const 104 ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 4 ) )
+          (call $-number (f64.const 1 ) ) ) )
+      (drop (call $ns2\write_type_section ) )
+      (drop (call $ns2\write_import_section ) )
+      (drop (call $ns2\write_function_section ) )
+      (drop (call $ns2\write_table_section ) )
+      (drop (call $ns2\write_memory_section ) )
+      (drop (call $ns2\write_global_section ) )
+      (drop (call $ns2\write_export_section ) )
+      (drop (call $ns2\write_start_section ) )
+      (drop (call $ns2\write_element_section ) )
+      (drop (call $ns2\write_code_section ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_string
+
+  (func $ns2\write_string
+    (param $ns2\bin i32 )
+    (param $ns2\str i32 )
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\size_of (get_local $ns2\str ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_local $ns2\bin )
+          (call $ns1\size_of (get_local $ns2\bin ) )
+          (get_local $ns2\str ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_resizable_limits
+
+  (func $ns2\write_resizable_limits
+    (param $ns2\bin i32 )
+    (param $ns2\limits i32 )
+    (result i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $-get_from_obj
+              (get_local $ns2\limits )
+              (i32.const 84 ) )
+            (i32.const 0 ) ) )
+        (then
+          (drop (call $ns3\write_varuint
+              (get_local $ns2\bin )
+              (call $-number (f64.const 0 ) ) ) )
+          (drop (call $ns3\write_varuint
+              (get_local $ns2\bin )
+              (call $-get_from_obj
+                (get_local $ns2\limits )
+                (i32.const 83 ) ) ) )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (if
+        (i32.eqz (get_local $-success ) )
+        (then
+          (drop (call $ns3\write_varuint
+              (get_local $ns2\bin )
+              (call $-number (f64.const 1 ) ) ) )
+          (drop (call $ns3\write_varuint
+              (get_local $ns2\bin )
+              (call $-get_from_obj
+                (get_local $ns2\limits )
+                (i32.const 83 ) ) ) )
+          (drop (call $ns3\write_varuint
+              (get_local $ns2\bin )
+              (call $-get_from_obj
+                (get_local $ns2\limits )
+                (i32.const 84 ) ) ) )
+          (set_local $-success (i32.const 1 ) ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_type_section
+
+  (func $ns2\write_type_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\type i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $ns2\param i32 )
+    (local $-fori1 i32 )
+    (local $-forl1 i32 )
+    (local $-fora1 i32 )
+    (local $ns2\_return i32 )
+    (local $-fori2 i32 )
+    (local $-forl2 i32 )
+    (local $-fora2 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 12 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 12 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 12 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\type (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop
+              (set_local $ns2\type (call $ns1\json_decode (get_local $ns2\type ) ) )
+              (get_local $ns2\type ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\type )
+                  (i32.const 91 ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $ns1\array_length (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 92 ) ) ) ) )
+            (set_local $-fori1 (i32.const 0 ) )
+            (set_local $-fora1 (call $-get_from_obj
+                (get_local $ns2\type )
+                (i32.const 92 ) ) )
+            (set_local $-forl1 (i32.div_u
+                (call $-len (get_local $-fora1 ) )
+                (i32.const 4 ) ) )
+            (block (loop
+                (br_if 1 (i32.ge_u
+                    (get_local $-fori1 )
+                    (get_local $-forl1 ) ) )
+                (set_local $ns2\param (call $-get_from_obj
+                    (get_local $-fora1 )
+                    (call $-integer_u (get_local $-fori1 ) ) ) )
+                (block
+                  (drop (call $ns3\write_varuint
+                      (get_local $ns2\bin )
+                      (get_local $ns2\param ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (set_local $-fori1 (i32.add
+                    (get_local $-fori1 )
+                    (i32.const 1 ) ) )
+                (br 0 ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $ns1\array_length (call $-get_from_obj
+                    (get_local $ns2\type )
+                    (i32.const 93 ) ) ) ) )
+            (set_local $-fori2 (i32.const 0 ) )
+            (set_local $-fora2 (call $-get_from_obj
+                (get_local $ns2\type )
+                (i32.const 93 ) ) )
+            (set_local $-forl2 (i32.div_u
+                (call $-len (get_local $-fora2 ) )
+                (i32.const 4 ) ) )
+            (block (loop
+                (br_if 1 (i32.ge_u
+                    (get_local $-fori2 )
+                    (get_local $-forl2 ) ) )
+                (set_local $ns2\_return (call $-get_from_obj
+                    (get_local $-fora2 )
+                    (call $-integer_u (get_local $-fori2 ) ) ) )
+                (block
+                  (drop (call $ns3\write_varuint
+                      (get_local $ns2\bin )
+                      (get_local $ns2\_return ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (set_local $-fori2 (i32.add
+                    (get_local $-fori2 )
+                    (i32.const 1 ) ) )
+                (br 0 ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 1 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_import_section
+
+  (func $ns2\write_import_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\_import i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 13 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 13 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 13 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\_import (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns2\write_string
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\_import )
+                  (i32.const 10 ) ) ) )
+            (drop (call $ns2\write_string
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\_import )
+                  (i32.const 79 ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\_import )
+                  (i32.const 81 ) ) ) )
+            (if
+              (call $-truthy (call $-equal
+                  (call $-get_from_obj
+                    (get_local $ns2\_import )
+                    (i32.const 81 ) )
+                  (call $-number (f64.const 0 ) ) ) )
+              (then
+                (drop (call $ns3\write_varuint
+                    (get_local $ns2\bin )
+                    (call $-get_from_obj
+                      (get_local $ns2\_import )
+                      (i32.const 12 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (call $-truthy (call $-equal
+                  (call $-get_from_obj
+                    (get_local $ns2\_import )
+                    (i32.const 81 ) )
+                  (call $-number (f64.const 1 ) ) ) )
+              (then
+                (drop (call $ns3\write_varuint
+                    (get_local $ns2\bin )
+                    (call $-get_from_obj
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) )
+                      (i32.const 85 ) ) ) )
+                (drop (call $ns2\write_resizable_limits
+                    (get_local $ns2\bin )
+                    (call $-get_from_obj
+                      (get_local $ns2\_import )
+                      (i32.const 12 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (call $-truthy (call $-equal
+                  (call $-get_from_obj
+                    (get_local $ns2\_import )
+                    (i32.const 81 ) )
+                  (call $-number (f64.const 2 ) ) ) )
+              (then
+                (drop (call $ns2\write_resizable_limits
+                    (get_local $ns2\bin )
+                    (call $-get_from_obj
+                      (get_local $ns2\_import )
+                      (i32.const 12 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (if
+              (call $-truthy (call $-equal
+                  (call $-get_from_obj
+                    (get_local $ns2\_import )
+                    (i32.const 81 ) )
+                  (call $-number (f64.const 3 ) ) ) )
+              (then
+                (drop (call $ns3\write_varuint
+                    (get_local $ns2\bin )
+                    (call $-get_from_obj
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) )
+                      (i32.const 87 ) ) ) )
+                (drop (call $ns3\write_varuint
+                    (get_local $ns2\bin )
+                    (call $-get_from_obj
+                      (call $-get_from_obj
+                        (get_local $ns2\_import )
+                        (i32.const 12 ) )
+                      (i32.const 90 ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 2 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_function_section
+
+  (func $ns2\write_function_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\function i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 14 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 14 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 14 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\function (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (get_local $ns2\function ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 3 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_table_section
+
+  (func $ns2\write_table_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\table i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 15 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 15 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 15 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\table (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\table )
+                  (i32.const 85 ) ) ) )
+            (drop (call $ns2\write_resizable_limits
+                (get_local $ns2\bin )
+                (get_local $ns2\table ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 4 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_memory_section
+
+  (func $ns2\write_memory_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\memory i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 16 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 16 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 16 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\memory (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns2\write_resizable_limits
+                (get_local $ns2\bin )
+                (get_local $ns2\memory ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 5 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_global_section
+
+  (func $ns2\write_global_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\global i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 17 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 17 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 17 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\global (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\global )
+                  (i32.const 87 ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\global )
+                  (i32.const 90 ) ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bin )
+                (call $ns1\size_of (get_local $ns2\bin ) )
+                (call $-get_from_obj
+                  (get_local $ns2\global )
+                  (i32.const 88 ) ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bin )
+                (call $ns1\size_of (get_local $ns2\bin ) )
+                (call $-number (f64.const 0x0b ) ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 6 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_export_section
+
+  (func $ns2\write_export_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\xport i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 18 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 18 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 18 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\xport (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns2\write_string
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 79 ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 81 ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\xport )
+                  (i32.const 99 ) ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 7 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_start_section
+
+  (func $ns2\write_start_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 19 ) )
+            (i32.const 0 ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $-get_from_obj
+            (get_global $ns2\sections )
+            (i32.const 19 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 8 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_element_section
+
+  (func $ns2\write_element_section
+    (result i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\elem i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $ns2\_elem i32 )
+    (local $-fori1 i32 )
+    (local $-forl1 i32 )
+    (local $-fora1 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 20 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 20 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 20 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\elem (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $-get_from_obj
+                  (get_local $ns2\elem )
+                  (i32.const 99 ) ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bin )
+                (call $ns1\size_of (get_local $ns2\bin ) )
+                (call $-get_from_obj
+                  (get_local $ns2\elem )
+                  (i32.const 103 ) ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bin )
+                (call $ns1\size_of (get_local $ns2\bin ) )
+                (call $-number (f64.const 0x0b ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $ns1\array_length (call $-get_from_obj
+                    (get_local $ns2\elem )
+                    (i32.const 102 ) ) ) ) )
+            (set_local $-fori1 (i32.const 0 ) )
+            (set_local $-fora1 (call $-get_from_obj
+                (get_local $ns2\elem )
+                (i32.const 102 ) ) )
+            (set_local $-forl1 (i32.div_u
+                (call $-len (get_local $-fora1 ) )
+                (i32.const 4 ) ) )
+            (block (loop
+                (br_if 1 (i32.ge_u
+                    (get_local $-fori1 )
+                    (get_local $-forl1 ) ) )
+                (set_local $ns2\_elem (call $-get_from_obj
+                    (get_local $-fora1 )
+                    (call $-integer_u (get_local $-fori1 ) ) ) )
+                (block
+                  (drop (call $ns3\write_varuint
+                      (get_local $ns2\bin )
+                      (get_local $ns2\_elem ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (set_local $-fori1 (i32.add
+                    (get_local $-fori1 )
+                    (i32.const 1 ) ) )
+                (br 0 ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 9 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+
+  ;; function $ns2\write_code_section
+
+  (func $ns2\write_code_section
+    (result i32 )
+    (local $ns2\t i32 )
+    (local $ns2\c i32 )
+    (local $ns2\locals i32 )
+    (local $ns2\bin i32 )
+    (local $ns2\body i32 )
+    (local $-fori0 i32 )
+    (local $-forl0 i32 )
+    (local $-fora0 i32 )
+    (local $ns2\bodybin i32 )
+    (local $ns2\local i32 )
+    (local $-fori1 i32 )
+    (local $-forl1 i32 )
+    (local $-fora1 i32 )
+    (local $-obj0 i32 )
+    (local $-obj1 i32 )
+    (local $-fori2 i32 )
+    (local $-forl2 i32 )
+    (local $-fora2 i32 )
+    (local $-ret i32 )
+    (local $-success i32 )
+    (block
+      (if
+        (call $-truthy (call $-equal
+            (call $ns1\array_length (call $-get_from_obj
+                (get_global $ns2\sections )
+                (i32.const 21 ) ) )
+            (call $-number (f64.const 0 ) ) ) )
+        (then
+          (set_local $-ret (i32.const 0 ) )
+          (br 1 )
+          (set_local $-success (i32.const 1 ) ) )
+        (else (set_local $-success (i32.const 0 ) ) ) )
+      (drop (get_local $ns2\t ) )
+      (drop (get_local $ns2\c ) )
+      (drop (get_local $ns2\locals ) )
+      (drop
+        (set_local $ns2\bin (call $-new_value
+            (i32.const 6 )
+            (i32.const 0 ) ) )
+        (get_local $ns2\bin ) )
+      (drop (call $ns3\write_varuint
+          (get_local $ns2\bin )
+          (call $ns1\array_length (call $-get_from_obj
+              (get_global $ns2\sections )
+              (i32.const 21 ) ) ) ) )
+      (set_local $-fori0 (i32.const 0 ) )
+      (set_local $-fora0 (call $-get_from_obj
+          (get_global $ns2\sections )
+          (i32.const 21 ) ) )
+      (set_local $-forl0 (i32.div_u
+          (call $-len (get_local $-fora0 ) )
+          (i32.const 4 ) ) )
+      (block (loop
+          (br_if 1 (i32.ge_u
+              (get_local $-fori0 )
+              (get_local $-forl0 ) ) )
+          (set_local $ns2\body (call $-get_from_obj
+              (get_local $-fora0 )
+              (call $-integer_u (get_local $-fori0 ) ) ) )
+          (block
+            (drop
+              (set_local $ns2\bodybin (call $-new_value
+                  (i32.const 6 )
+                  (i32.const 0 ) ) )
+              (get_local $ns2\bodybin ) )
+            (drop
+              (set_local $ns2\locals (call $-new_value
+                  (i32.const 4 )
+                  (i32.const 0 ) ) )
+              (get_local $ns2\locals ) )
+            (drop
+              (set_local $ns2\c (call $-number (f64.const 0 ) ) )
+              (get_local $ns2\c ) )
+            (drop
+              (set_local $ns2\t (i32.const 0 ) )
+              (get_local $ns2\t ) )
+            (set_local $-fori1 (i32.const 0 ) )
+            (set_local $-fora1 (call $-get_from_obj
+                (get_local $ns2\body )
+                (i32.const 94 ) ) )
+            (set_local $-forl1 (i32.div_u
+                (call $-len (get_local $-fora1 ) )
+                (i32.const 4 ) ) )
+            (block (loop
+                (br_if 1 (i32.ge_u
+                    (get_local $-fori1 )
+                    (get_local $-forl1 ) ) )
+                (set_local $ns2\local (call $-get_from_obj
+                    (get_local $-fora1 )
+                    (call $-integer_u (get_local $-fori1 ) ) ) )
+                (block
+                  (if
+                    (call $-truthy (call $-unequal
+                        (get_local $ns2\local )
+                        (get_local $ns2\t ) ) )
+                    (then
+                      (if
+                        (call $-truthy (get_local $ns2\c ) )
+                        (then
+                          (drop (call $ns1\array_push
+                              (get_local $ns2\locals )
+                              (tee_local $-obj0 (call $-new_value
+                                  (i32.const 5 )
+                                  (i32.const 0 ) ) )
+                              (drop
+                                (call $-set_to_obj
+                                  (get_local $-obj0 )
+                                  (i32.const 105 )
+                                  (get_local $ns2\c ) )
+                                (call $-get_from_obj
+                                  (get_local $-obj0 )
+                                  (i32.const 105 ) ) )
+                              (drop
+                                (call $-set_to_obj
+                                  (get_local $-obj0 )
+                                  (i32.const 12 )
+                                  (get_local $ns2\t ) )
+                                (call $-get_from_obj
+                                  (get_local $-obj0 )
+                                  (i32.const 12 ) ) ) ) )
+                          (set_local $-success (i32.const 1 ) ) )
+                        (else (set_local $-success (i32.const 0 ) ) ) )
+                      (drop
+                        (set_local $ns2\c (call $-number (f64.const 0 ) ) )
+                        (get_local $ns2\c ) )
+                      (drop
+                        (set_local $ns2\t (get_local $ns2\local ) )
+                        (get_local $ns2\t ) )
+                      (set_local $-success (i32.const 1 ) ) )
+                    (else (set_local $-success (i32.const 0 ) ) ) )
+                  (drop
+                    (set_local $ns2\c (call $-inc
+                        (get_local $ns2\c )
+                        (f64.const 1 ) ) )
+                    (get_local $ns2\c ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (set_local $-fori1 (i32.add
+                    (get_local $-fori1 )
+                    (i32.const 1 ) ) )
+                (br 0 ) ) )
+            (if
+              (call $-truthy (get_local $ns2\c ) )
+              (then
+                (drop (call $ns1\array_push
+                    (get_local $ns2\locals )
+                    (tee_local $-obj1 (call $-new_value
+                        (i32.const 5 )
+                        (i32.const 0 ) ) )
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $-obj1 )
+                        (i32.const 105 )
+                        (get_local $ns2\c ) )
+                      (call $-get_from_obj
+                        (get_local $-obj1 )
+                        (i32.const 105 ) ) )
+                    (drop
+                      (call $-set_to_obj
+                        (get_local $-obj1 )
+                        (i32.const 12 )
+                        (get_local $ns2\t ) )
+                      (call $-get_from_obj
+                        (get_local $-obj1 )
+                        (i32.const 12 ) ) ) ) )
+                (set_local $-success (i32.const 1 ) ) )
+              (else (set_local $-success (i32.const 0 ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bodybin )
+                (call $ns1\array_length (get_local $ns2\locals ) ) ) )
+            (set_local $-fori2 (i32.const 0 ) )
+            (set_local $-fora2 (get_local $ns2\locals ) )
+            (set_local $-forl2 (i32.div_u
+                (call $-len (get_local $-fora2 ) )
+                (i32.const 4 ) ) )
+            (block (loop
+                (br_if 1 (i32.ge_u
+                    (get_local $-fori2 )
+                    (get_local $-forl2 ) ) )
+                (set_local $ns2\local (call $-get_from_obj
+                    (get_local $-fora2 )
+                    (call $-integer_u (get_local $-fori2 ) ) ) )
+                (block
+                  (drop (call $ns3\write_varuint
+                      (get_local $ns2\bodybin )
+                      (call $-get_from_obj
+                        (get_local $ns2\local )
+                        (i32.const 105 ) ) ) )
+                  (drop (call $ns3\write_varuint
+                      (get_local $ns2\bodybin )
+                      (call $-get_from_obj
+                        (get_local $ns2\local )
+                        (i32.const 12 ) ) ) )
+                  (set_local $-success (i32.const 1 ) ) )
+                (set_local $-fori2 (i32.add
+                    (get_local $-fori2 )
+                    (i32.const 1 ) ) )
+                (br 0 ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bodybin )
+                (call $ns1\size_of (get_local $ns2\bodybin ) )
+                (call $-get_from_obj
+                  (get_local $ns2\body )
+                  (i32.const 21 ) ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bodybin )
+                (call $ns1\size_of (get_local $ns2\bodybin ) )
+                (call $-number (f64.const 0x0b ) ) ) )
+            (drop (call $ns3\write_varuint
+                (get_local $ns2\bin )
+                (call $ns1\size_of (get_local $ns2\bodybin ) ) ) )
+            (drop (call $ns1\binary_write
+                (get_local $ns2\bin )
+                (call $ns1\size_of (get_local $ns2\bin ) )
+                (get_local $ns2\bodybin ) ) )
+            (set_local $-success (i32.const 1 ) ) )
+          (set_local $-fori0 (i32.add
+              (get_local $-fori0 )
+              (i32.const 1 ) ) )
+          (br 0 ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $-number (f64.const 10 ) ) ) )
+      (drop (call $ns3\write_varuint
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_local $ns2\bin ) ) ) )
+      (drop (call $ns1\binary_write
+          (get_global $ns2\wasm )
+          (call $ns1\size_of (get_global $ns2\wasm ) )
+          (get_local $ns2\bin ) ) )
+      (set_local $-success (i32.const 1 ) ) )
+    (get_local $-ret ) )
+  (func $ns3\token_to_varint
+    (param $ns3\token i32 )
+    (result i32 )
+    (local $ns3\pos i32 )
+    (local $ns3\len i32 )
+    (local $ns3\neg i32 )
+    (local $ns3\dig i64 )
+    (local $ns3\num i64 )
+    (local $ns3\out i32 )
+    (set_local $ns3\pos (call $-offset (get_local $ns3\token ) ) )
+    (set_local $ns3\len (call $-len (get_local $ns3\token ) ) )
+    (set_local $ns3\dig (i64.load8_u (get_local $ns3\pos ) ) )
+    (if
+      (i64.eq
+        (get_local $ns3\dig )
+        (i64.const 0x2d ) )
+      (then
+        (set_local $ns3\neg (i32.const 1 ) )
+        (set_local $ns3\pos (i32.add
+            (get_local $ns3\pos )
+            (i32.const 1 ) ) )
+        (set_local $ns3\len (i32.sub
+            (get_local $ns3\len )
+            (i32.const 1 ) ) ) ) )
+    (if
+      (i32.eq
+        (i32.load16_u (get_local $ns3\pos ) )
+        (i32.const 0x7830 ) )
+      (then
+        (set_local $ns3\pos (i32.add
+            (get_local $ns3\pos )
+            (i32.const 2 ) ) )
+        (set_local $ns3\len (i32.sub
+            (get_local $ns3\len )
+            (i32.const 2 ) ) )
+        (block (loop
+            (br_if 1 (i32.eqz (get_local $ns3\len ) ) )
+            (set_local $ns3\dig (i64.load8_u (get_local $ns3\pos ) ) )
+            (set_local $ns3\num (i64.mul
+                (get_local $ns3\num )
+                (i64.const 0x10 ) ) )
+            (if
+              (i64.lt_u
+                (get_local $ns3\dig )
+                (i64.const 0x40 ) )
+              (then (set_local $ns3\num (i64.add
+                    (get_local $ns3\num )
+                    (i64.sub
+                      (get_local $ns3\dig )
+                      (i64.const 0x30 ) ) ) ) )
+              (else (if
+                  (i64.lt_u
+                    (get_local $ns3\dig )
+                    (i64.const 0x60 ) )
+                  (then (set_local $ns3\num (i64.add
+                        (get_local $ns3\num )
+                        (i64.sub
+                          (get_local $ns3\dig )
+                          (i64.const 0x37 ) ) ) ) )
+                  (else (set_local $ns3\num (i64.add
+                        (get_local $ns3\num )
+                        (i64.sub
+                          (get_local $ns3\dig )
+                          (i64.const 0x57 ) ) ) ) ) ) ) )
+            (set_local $ns3\pos (i32.add
+                (get_local $ns3\pos )
+                (i32.const 1 ) ) )
+            (set_local $ns3\len (i32.sub
+                (get_local $ns3\len )
+                (i32.const 1 ) ) )
+            (br 0 ) ) ) )
+      (else (block (loop
+            (br_if 1 (i32.eqz (get_local $ns3\len ) ) )
+            (set_local $ns3\dig (i64.load8_u (get_local $ns3\pos ) ) )
+            (set_local $ns3\num (i64.mul
+                (get_local $ns3\num )
+                (i64.const 10 ) ) )
+            (set_local $ns3\num (i64.add
+                (get_local $ns3\num )
+                (i64.sub
+                  (get_local $ns3\dig )
+                  (i64.const 0x30 ) ) ) )
+            (set_local $ns3\pos (i32.add
+                (get_local $ns3\pos )
+                (i32.const 1 ) ) )
+            (set_local $ns3\len (i32.sub
+                (get_local $ns3\len )
+                (i32.const 1 ) ) )
+            (br 0 ) ) ) ) )
+    (if
+      (get_local $ns3\neg )
+      (then (set_local $ns3\num (i64.add
+            (i64.xor
+              (get_local $ns3\num )
+              (i64.const -1 ) )
+            (i64.const 1 ) ) ) ) )
+    (set_local $ns3\out (call $-new_value
+        (i32.const 6 )
+        (i32.const 0 ) ) )
+    (block (loop
+        (call $-write8
+          (get_local $ns3\out )
+          (get_local $ns3\len )
+          (i32.wrap/i64 (i64.or
+              (i64.rem_u
+                (get_local $ns3\num )
+                (i64.const 128 ) )
+              (i64.const 128 ) ) ) )
+        (set_local $ns3\num (i64.shr_s
+            (get_local $ns3\num )
+            (i64.const 7 ) ) )
+        (br_if 1 (i64.eqz (get_local $ns3\num ) ) )
+        (br_if 1 (i64.eq
+            (get_local $ns3\num )
+            (i64.const -1 ) ) )
+        (set_local $ns3\len (i32.add
+            (get_local $ns3\len )
+            (i32.const 1 ) ) )
+        (br 0 ) ) )
+    (set_local $ns3\pos (i32.and
+        (call $-read8
+          (get_local $ns3\out )
+          (get_local $ns3\len ) )
+        (i32.const 127 ) ) )
+    (call $-write8
+      (get_local $ns3\out )
+      (get_local $ns3\len )
+      (get_local $ns3\pos ) )
+    (if
+      (get_local $ns3\neg )
+      (then (if
+          (i32.eqz (i32.and
+              (get_local $ns3\pos )
+              (i32.const 64 ) ) )
+          (then
+            (call $-write8
+              (get_local $ns3\out )
+              (get_local $ns3\len )
+              (i32.or
+                (get_local $ns3\pos )
+                (i32.const 128 ) ) )
+            (call $-write8
+              (get_local $ns3\out )
+              (i32.add
+                (get_local $ns3\len )
+                (i32.const 1 ) )
+              (i32.const 127 ) ) ) ) )
+      (else (if
+          (i32.and
+            (get_local $ns3\pos )
+            (i32.const 64 ) )
+          (then
+            (call $-write8
+              (get_local $ns3\out )
+              (get_local $ns3\len )
+              (i32.or
+                (get_local $ns3\pos )
+                (i32.const 128 ) ) )
+            (call $-write8
+              (get_local $ns3\out )
+              (i32.add
+                (get_local $ns3\len )
+                (i32.const 1 ) )
+              (i32.const 0 ) ) ) ) ) )
+    (get_local $ns3\out ) )
+  (func $ns3\number_to_f64bin
+    (param $ns3\num i32 )
+    (result i32 )
+    (local $ns3\out i32 )
+    (set_local $ns3\out (call $-new_value
+        (i32.const 6 )
+        (i32.const 8 ) ) )
+    (f64.store
+      (call $-offset (get_local $ns3\out ) )
+      (call $-f64 (get_local $ns3\num ) ) )
+    (get_local $ns3\out ) )
+  (func $ns3\number_to_f32bin
+    (param $ns3\num i32 )
+    (result i32 )
+    (local $ns3\out i32 )
+    (set_local $ns3\out (call $-new_value
+        (i32.const 6 )
+        (i32.const 4 ) ) )
+    (f32.store
+      (call $-offset (get_local $ns3\out ) )
+      (f32.demote/f64 (call $-f64 (get_local $ns3\num ) ) ) )
+    (get_local $ns3\out ) )
   (func $ns3\write_varuint
     (param $ns3\id i32 )
     (param $ns3\num i32 )
@@ -2384,7 +7131,6 @@
     (set_local $ns3\len (call $-len (get_local $ns3\id ) ) )
     (set_local $ns3\num (call $-i32_u (get_local $ns3\num ) ) )
     (block (loop
-        (br_if 1 (i32.eqz (get_local $ns3\num ) ) )
         (if
           (i32.lt_u
             (get_local $ns3\num )
@@ -2398,7 +7144,7 @@
           (else (call $-write8
               (get_local $ns3\id )
               (get_local $ns3\len )
-              (i32.and
+              (i32.or
                 (i32.rem_u
                   (get_local $ns3\num )
                   (i32.const 128 ) )
@@ -2409,67 +7155,2185 @@
         (set_local $ns3\num (i32.shr_u
             (get_local $ns3\num )
             (i32.const 7 ) ) )
+        (br_if 1 (i32.eqz (get_local $ns3\num ) ) )
         (br 0 ) ) )
     (get_local $ns3\id ) )
+  (func $ns3\from_hex
+    (param $ns3\hex i32 )
+    (result i32 )
+    (call $-integer_u (call $-from_hex (get_local $ns3\hex ) ) ) )
 
   ;; start
 
   (func $-start
     (local $-success i32 )
+    (local $-obj0 i32 )
     (local $-ret i32 )
     (call $-initruntime )
     (call $-resize
       (i32.const -1 )
-      (i32.const 176 ) )
+      (i32.const 2112 ) )
     (drop (call $-string
         (i32.const 65536 )
-        (i32.const 4 ) ) )
+        (i32.const 1 ) ) )
     (drop (call $-string
         (i32.const 65552 )
-        (i32.const 5 ) ) )
-    (drop (call $-string
-        (i32.const 65568 )
         (i32.const 3 ) ) )
     (drop (call $-string
-        (i32.const 65584 )
-        (i32.const 1 ) ) )
+        (i32.const 65568 )
+        (i32.const 6 ) ) )
     (drop (call $-string
-        (i32.const 65600 )
-        (i32.const 9 ) ) )
+        (i32.const 65584 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 65608 )
+        (i32.const 4 ) ) )
     (drop (call $-string
         (i32.const 65624 )
-        (i32.const 9 ) ) )
+        (i32.const 6 ) ) )
     (drop (call $-string
-        (i32.const 65648 )
-        (i32.const 1 ) ) )
+        (i32.const 65640 )
+        (i32.const 8 ) ) )
     (drop (call $-string
         (i32.const 65664 )
-        (i32.const 1 ) ) )
+        (i32.const 5 ) ) )
     (drop (call $-string
         (i32.const 65680 )
-        (i32.const 1 ) ) )
+        (i32.const 6 ) ) )
     (drop (call $-string
         (i32.const 65696 )
-        (i32.const 2 ) ) )
+        (i32.const 6 ) ) )
     (drop (call $-string
         (i32.const 65712 )
-        (i32.const 1 ) ) )
+        (i32.const 6 ) ) )
     (drop (call $-string
         (i32.const 65728 )
-        (i32.const 1 ) ) )
+        (i32.const 5 ) ) )
     (drop (call $-string
         (i32.const 65744 )
-        (i32.const 1 ) ) )
+        (i32.const 7 ) ) )
     (drop (call $-string
         (i32.const 65760 )
         (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 65776 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 65792 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 65808 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 65824 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 65840 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 65864 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 65888 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 65904 )
+        (i32.const 18 ) ) )
+    (drop (call $-string
+        (i32.const 65936 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 65952 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 65976 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 66000 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66016 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66032 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66048 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66064 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66080 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66096 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66112 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66128 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66144 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 66168 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66184 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 66200 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66216 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66232 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 66248 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 66264 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 66280 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 66296 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 66312 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66328 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 66344 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66360 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 66376 )
+        (i32.const 16 ) ) )
+    (drop (call $-string
+        (i32.const 66408 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66424 )
+        (i32.const 20 ) ) )
+    (drop (call $-string
+        (i32.const 66456 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 66472 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 66504 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 66520 )
+        (i32.const 18 ) ) )
+    (drop (call $-string
+        (i32.const 66552 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 66568 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 66584 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66600 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66616 )
+        (i32.const 2 ) ) )
+    (drop (call $-string
+        (i32.const 66632 )
+        (i32.const 1 ) ) )
+    (drop (call $-string
+        (i32.const 66648 )
+        (i32.const 14 ) ) )
+    (drop (call $-string
+        (i32.const 66672 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 66696 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 66720 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 66744 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 66768 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 66792 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 66816 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66832 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66848 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 66864 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 66880 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 66904 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 66920 )
+        (i32.const 14 ) ) )
+    (drop (call $-string
+        (i32.const 66944 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 66960 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 66976 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67000 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 67016 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67040 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 67064 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 67080 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 67104 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 67120 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 67136 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 67152 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 67168 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 67184 )
+        (i32.const 14 ) ) )
+    (drop (call $-string
+        (i32.const 67208 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 67224 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 67240 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 67256 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 67272 )
+        (i32.const 18 ) ) )
+    (drop (call $-string
+        (i32.const 67304 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 67320 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 67336 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 67352 )
+        (i32.const 5 ) ) )
+    (drop (call $-string
+        (i32.const 67368 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 67392 )
+        (i32.const 3 ) ) )
+    (drop (call $-string
+        (i32.const 67408 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 67432 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 67448 )
+        (i32.const 13 ) ) )
+    (drop (call $-string
+        (i32.const 67472 )
+        (i32.const 4 ) ) )
+    (drop (call $-string
+        (i32.const 67488 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 67504 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 67528 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 67552 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 67576 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 67600 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 67624 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 67648 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 67672 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 67696 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 67720 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 67744 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 67768 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67792 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67816 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 67840 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 67864 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67888 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67912 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67936 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 67960 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 67984 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 68008 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 68032 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 68056 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 68080 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 68104 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 68128 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 68152 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 68176 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68192 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68208 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68224 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68248 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68272 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68296 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68320 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68344 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68368 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68392 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68416 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68432 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68448 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68464 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68488 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68512 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68536 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68560 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68584 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68608 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68632 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 68656 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68672 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68688 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68704 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68720 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68736 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68752 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68768 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68784 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68800 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68816 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68832 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 68848 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68864 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68880 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 68904 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68920 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68936 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 68952 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 68976 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69000 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69024 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69048 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69064 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 69080 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69096 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69112 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69136 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69160 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69184 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69208 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69224 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69240 )
+        (i32.const 10 ) ) )
+    (drop (call $-string
+        (i32.const 69264 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69280 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69296 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69312 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69336 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69360 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69384 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69408 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69424 )
+        (i32.const 6 ) ) )
+    (drop (call $-string
+        (i32.const 69440 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69456 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69472 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69496 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69520 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69544 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69568 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69584 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69600 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69624 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69648 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69672 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 69696 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69720 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69736 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69752 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69768 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69784 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69800 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69816 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 69840 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69856 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 69872 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69896 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69920 )
+        (i32.const 9 ) ) )
+    (drop (call $-string
+        (i32.const 69944 )
+        (i32.const 11 ) ) )
+    (drop (call $-string
+        (i32.const 69968 )
+        (i32.const 8 ) ) )
+    (drop (call $-string
+        (i32.const 69992 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 70008 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 70024 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 70040 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 70056 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 70072 )
+        (i32.const 7 ) ) )
+    (drop (call $-string
+        (i32.const 70088 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 70112 )
+        (i32.const 12 ) ) )
+    (drop (call $-string
+        (i32.const 70136 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70160 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70184 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70208 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70232 )
+        (i32.const 16 ) ) )
+    (drop (call $-string
+        (i32.const 70264 )
+        (i32.const 16 ) ) )
+    (drop (call $-string
+        (i32.const 70296 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70320 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70344 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70368 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70392 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70424 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70456 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70488 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70520 )
+        (i32.const 14 ) ) )
+    (drop (call $-string
+        (i32.const 70544 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70576 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70608 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70640 )
+        (i32.const 17 ) ) )
+    (drop (call $-string
+        (i32.const 70672 )
+        (i32.const 15 ) ) )
+    (drop (call $-string
+        (i32.const 70696 )
+        (i32.const 19 ) ) )
+    (drop (call $-string
+        (i32.const 70728 )
+        (i32.const 19 ) ) )
+    (drop (call $-string
+        (i32.const 70760 )
+        (i32.const 19 ) ) )
+    (drop (call $-string
+        (i32.const 70792 )
+        (i32.const 19 ) ) )
     (call $-zerorefs )
     (drop (get_global $ns2\error ) )
     (drop (get_global $ns2\src ) )
     (drop (get_global $ns2\pos ) )
     (drop (get_global $ns2\line ) )
     (drop (get_global $ns2\column ) )
-    (drop (get_global $ns2\sections ) ) )
+    (drop (get_global $ns2\pos_stack ) )
+    (drop (get_global $ns2\sections ) )
+    (drop (get_global $ns2\wasm ) )
+    (drop (get_global $ns2\local_names ) )
+    (drop (get_global $ns2\blocks ) )
+    (drop
+      (set_global $ns4\opcodes
+        (tee_local $-obj0 (call $-new_value
+            (i32.const 5 )
+            (i32.const 0 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 106 )
+            (call $-number (f64.const 0x00 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 106 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 107 )
+            (call $-number (f64.const 0x01 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 107 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 44 )
+            (call $-number (f64.const 0x02 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 44 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 45 )
+            (call $-number (f64.const 0x03 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 45 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 46 )
+            (call $-number (f64.const 0x04 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 46 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 52 )
+            (call $-number (f64.const 0x05 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 52 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 53 )
+            (call $-number (f64.const 0x0b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 53 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 54 )
+            (call $-number (f64.const 0x0c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 54 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 55 )
+            (call $-number (f64.const 0x0d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 55 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 108 )
+            (call $-number (f64.const 0x0e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 108 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 109 )
+            (call $-number (f64.const 0x0f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 109 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 57 )
+            (call $-number (f64.const 0x10 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 57 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 110 )
+            (call $-number (f64.const 0x11 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 110 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 111 )
+            (call $-number (f64.const 0x1a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 111 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 112 )
+            (call $-number (f64.const 0x1b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 112 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 113 )
+            (call $-number (f64.const 0x20 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 113 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 114 )
+            (call $-number (f64.const 0x21 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 114 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 115 )
+            (call $-number (f64.const 0x22 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 115 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 116 )
+            (call $-number (f64.const 0x23 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 116 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 117 )
+            (call $-number (f64.const 0x24 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 117 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 118 )
+            (call $-number (f64.const 0x28 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 118 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 119 )
+            (call $-number (f64.const 0x29 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 119 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 120 )
+            (call $-number (f64.const 0x2a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 120 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 121 )
+            (call $-number (f64.const 0x2b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 121 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 122 )
+            (call $-number (f64.const 0x2c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 122 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 123 )
+            (call $-number (f64.const 0x2d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 123 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 124 )
+            (call $-number (f64.const 0x2e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 124 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 125 )
+            (call $-number (f64.const 0x2f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 125 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 126 )
+            (call $-number (f64.const 0x30 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 126 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 127 )
+            (call $-number (f64.const 0x31 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 127 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 128 )
+            (call $-number (f64.const 0x32 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 128 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 129 )
+            (call $-number (f64.const 0x33 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 129 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 130 )
+            (call $-number (f64.const 0x34 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 130 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 131 )
+            (call $-number (f64.const 0x35 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 131 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 132 )
+            (call $-number (f64.const 0x36 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 132 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 133 )
+            (call $-number (f64.const 0x37 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 133 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 134 )
+            (call $-number (f64.const 0x38 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 134 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 135 )
+            (call $-number (f64.const 0x39 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 135 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 136 )
+            (call $-number (f64.const 0x3a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 136 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 137 )
+            (call $-number (f64.const 0x3b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 137 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 138 )
+            (call $-number (f64.const 0x3c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 138 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 139 )
+            (call $-number (f64.const 0x3d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 139 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 140 )
+            (call $-number (f64.const 0x3e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 140 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 69 )
+            (call $-number (f64.const 0x3f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 69 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 70 )
+            (call $-number (f64.const 0x40 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 70 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 71 )
+            (call $-number (f64.const 0x41 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 71 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 72 )
+            (call $-number (f64.const 0x42 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 72 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 74 )
+            (call $-number (f64.const 0x43 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 74 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 75 )
+            (call $-number (f64.const 0x44 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 75 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 141 )
+            (call $-number (f64.const 0x45 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 141 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 142 )
+            (call $-number (f64.const 0x46 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 142 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 143 )
+            (call $-number (f64.const 0x47 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 143 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 144 )
+            (call $-number (f64.const 0x48 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 144 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 145 )
+            (call $-number (f64.const 0x49 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 145 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 146 )
+            (call $-number (f64.const 0x4a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 146 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 147 )
+            (call $-number (f64.const 0x4b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 147 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 148 )
+            (call $-number (f64.const 0x4c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 148 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 149 )
+            (call $-number (f64.const 0x4d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 149 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 150 )
+            (call $-number (f64.const 0x4e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 150 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 151 )
+            (call $-number (f64.const 0x4f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 151 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 152 )
+            (call $-number (f64.const 0x50 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 152 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 153 )
+            (call $-number (f64.const 0x51 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 153 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 154 )
+            (call $-number (f64.const 0x52 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 154 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 155 )
+            (call $-number (f64.const 0x53 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 155 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 156 )
+            (call $-number (f64.const 0x54 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 156 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 157 )
+            (call $-number (f64.const 0x55 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 157 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 158 )
+            (call $-number (f64.const 0x56 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 158 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 159 )
+            (call $-number (f64.const 0x57 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 159 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 160 )
+            (call $-number (f64.const 0x58 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 160 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 161 )
+            (call $-number (f64.const 0x59 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 161 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 162 )
+            (call $-number (f64.const 0x5a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 162 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 163 )
+            (call $-number (f64.const 0x5b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 163 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 164 )
+            (call $-number (f64.const 0x5c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 164 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 165 )
+            (call $-number (f64.const 0x5d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 165 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 166 )
+            (call $-number (f64.const 0x5e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 166 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 167 )
+            (call $-number (f64.const 0x5f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 167 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 168 )
+            (call $-number (f64.const 0x60 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 168 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 169 )
+            (call $-number (f64.const 0x61 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 169 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 170 )
+            (call $-number (f64.const 0x62 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 170 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 171 )
+            (call $-number (f64.const 0x63 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 171 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 172 )
+            (call $-number (f64.const 0x64 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 172 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 173 )
+            (call $-number (f64.const 0x65 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 173 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 174 )
+            (call $-number (f64.const 0x66 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 174 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 175 )
+            (call $-number (f64.const 0x67 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 175 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 176 )
+            (call $-number (f64.const 0x68 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 176 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 177 )
+            (call $-number (f64.const 0x69 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 177 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 178 )
+            (call $-number (f64.const 0x6a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 178 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 179 )
+            (call $-number (f64.const 0x6b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 179 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 180 )
+            (call $-number (f64.const 0x6c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 180 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 181 )
+            (call $-number (f64.const 0x6d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 181 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 182 )
+            (call $-number (f64.const 0x6e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 182 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 183 )
+            (call $-number (f64.const 0x6f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 183 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 184 )
+            (call $-number (f64.const 0x70 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 184 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 185 )
+            (call $-number (f64.const 0x71 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 185 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 186 )
+            (call $-number (f64.const 0x72 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 186 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 187 )
+            (call $-number (f64.const 0x73 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 187 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 188 )
+            (call $-number (f64.const 0x74 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 188 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 189 )
+            (call $-number (f64.const 0x75 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 189 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 190 )
+            (call $-number (f64.const 0x76 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 190 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 191 )
+            (call $-number (f64.const 0x77 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 191 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 192 )
+            (call $-number (f64.const 0x78 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 192 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 193 )
+            (call $-number (f64.const 0x79 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 193 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 194 )
+            (call $-number (f64.const 0x7a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 194 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 195 )
+            (call $-number (f64.const 0x7b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 195 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 196 )
+            (call $-number (f64.const 0x7c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 196 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 197 )
+            (call $-number (f64.const 0x7d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 197 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 198 )
+            (call $-number (f64.const 0x7e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 198 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 199 )
+            (call $-number (f64.const 0x7f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 199 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 200 )
+            (call $-number (f64.const 0x80 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 200 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 201 )
+            (call $-number (f64.const 0x81 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 201 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 202 )
+            (call $-number (f64.const 0x82 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 202 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 203 )
+            (call $-number (f64.const 0x83 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 203 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 204 )
+            (call $-number (f64.const 0x84 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 204 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 205 )
+            (call $-number (f64.const 0x85 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 205 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 206 )
+            (call $-number (f64.const 0x86 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 206 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 207 )
+            (call $-number (f64.const 0x87 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 207 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 208 )
+            (call $-number (f64.const 0x88 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 208 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 209 )
+            (call $-number (f64.const 0x89 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 209 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 210 )
+            (call $-number (f64.const 0x8a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 210 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 211 )
+            (call $-number (f64.const 0x8b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 211 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 212 )
+            (call $-number (f64.const 0x8c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 212 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 213 )
+            (call $-number (f64.const 0x8d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 213 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 214 )
+            (call $-number (f64.const 0x8e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 214 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 215 )
+            (call $-number (f64.const 0x8f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 215 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 216 )
+            (call $-number (f64.const 0x90 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 216 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 217 )
+            (call $-number (f64.const 0x91 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 217 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 218 )
+            (call $-number (f64.const 0x92 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 218 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 219 )
+            (call $-number (f64.const 0x93 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 219 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 220 )
+            (call $-number (f64.const 0x94 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 220 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 221 )
+            (call $-number (f64.const 0x95 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 221 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 222 )
+            (call $-number (f64.const 0x96 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 222 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 223 )
+            (call $-number (f64.const 0x97 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 223 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 224 )
+            (call $-number (f64.const 0x98 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 224 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 225 )
+            (call $-number (f64.const 0x99 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 225 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 226 )
+            (call $-number (f64.const 0x9a ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 226 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 227 )
+            (call $-number (f64.const 0x9b ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 227 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 228 )
+            (call $-number (f64.const 0x9c ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 228 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 229 )
+            (call $-number (f64.const 0x9d ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 229 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 230 )
+            (call $-number (f64.const 0x9e ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 230 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 231 )
+            (call $-number (f64.const 0x9f ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 231 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 232 )
+            (call $-number (f64.const 0xa0 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 232 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 233 )
+            (call $-number (f64.const 0xa1 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 233 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 234 )
+            (call $-number (f64.const 0xa2 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 234 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 235 )
+            (call $-number (f64.const 0xa3 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 235 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 236 )
+            (call $-number (f64.const 0xa4 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 236 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 237 )
+            (call $-number (f64.const 0xa5 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 237 ) ) )
+        (drop
+          (call $-set_to_obj
+            (get_local $-obj0 )
+            (i32.const 238 )
+            (call $-number (f64.const 0xa6 ) ) )
+          (call $-get_from_obj
+            (get_local $-obj0 )
+            (i32.const 238 ) ) ) )
+      (get_global $ns4\opcodes ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 239 )
+        (call $-number (f64.const 0xa7 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 239 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 240 )
+        (call $-number (f64.const 0xa8 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 240 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 241 )
+        (call $-number (f64.const 0xa9 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 241 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 242 )
+        (call $-number (f64.const 0xaa ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 242 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 243 )
+        (call $-number (f64.const 0xab ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 243 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 244 )
+        (call $-number (f64.const 0xac ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 244 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 245 )
+        (call $-number (f64.const 0xad ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 245 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 246 )
+        (call $-number (f64.const 0xae ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 246 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 247 )
+        (call $-number (f64.const 0xaf ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 247 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 248 )
+        (call $-number (f64.const 0xb0 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 248 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 249 )
+        (call $-number (f64.const 0xb1 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 249 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 250 )
+        (call $-number (f64.const 0xb2 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 250 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 251 )
+        (call $-number (f64.const 0xb3 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 251 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 252 )
+        (call $-number (f64.const 0xb4 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 252 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 253 )
+        (call $-number (f64.const 0xb5 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 253 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 254 )
+        (call $-number (f64.const 0xb6 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 254 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 255 )
+        (call $-number (f64.const 0xb7 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 255 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 256 )
+        (call $-number (f64.const 0xb8 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 256 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 257 )
+        (call $-number (f64.const 0xb9 ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 257 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 258 )
+        (call $-number (f64.const 0xba ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 258 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 259 )
+        (call $-number (f64.const 0xbb ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 259 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 260 )
+        (call $-number (f64.const 0xbc ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 260 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 261 )
+        (call $-number (f64.const 0xbd ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 261 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 262 )
+        (call $-number (f64.const 0xbe ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 262 ) ) )
+    (drop
+      (call $-set_to_obj
+        (get_global $ns4\opcodes )
+        (i32.const 263 )
+        (call $-number (f64.const 0xbf ) ) )
+      (call $-get_from_obj
+        (get_global $ns4\opcodes )
+        (i32.const 263 ) ) ) )
   (start $-start )
 
   ;; exports
@@ -3976,6 +10840,9 @@
         (get_local $datatype )
         (i32.const 2 ) )
       (then
+
+        ;; number
+
         (set_local $id3 (call $-new_value
             (i32.const 3 )
             (i32.const 0 ) ) )
@@ -3998,74 +10865,101 @@
             (set_local $digit (f64.mul
                 (get_local $digit )
                 (f64.const -1 ) ) ) ) )
+        (call $-write8
+          (get_local $id3 )
+          (get_local $pos )
+          (i32.const 0x30 ) )
+
+        ;; 0
+
         (block (loop
             (br_if 1 (f64.lt
                 (get_local $digit )
-                (f64.const 10 ) ) )
+                (f64.const 1 ) ) )
             (set_local $digit (f64.div
                 (get_local $digit )
                 (f64.const 10 ) ) )
-            (set_local $decimals (i32.sub
-                (get_local $decimals )
+            (call $-write8
+              (get_local $id3 )
+              (get_local $pos )
+              (i32.const 0x30 ) )
+
+            ;; 0
+
+            (set_local $pos (i32.add
+                (get_local $pos )
                 (i32.const 1 ) ) )
             (br 0 ) ) )
+        (set_local $decimals (i32.trunc_u/f64 (f64.trunc (f64.abs (call $-f64 (get_local $id ) ) ) ) ) )
         (block (loop
-            (br_if 1 (i32.ge_s
-                (get_local $decimals )
-                (i32.const 10 ) ) )
+            (br_if 1 (i32.eqz (get_local $decimals ) ) )
+            (set_local $pos (i32.sub
+                (get_local $pos )
+                (i32.const 1 ) ) )
             (call $-write8
               (get_local $id3 )
               (get_local $pos )
               (i32.add
                 (i32.const 0x30 )
-                (i32.trunc_s/f64 (f64.trunc (get_local $digit ) ) ) ) )
+                (i32.rem_u
+                  (get_local $decimals )
+                  (i32.const 10 ) ) ) )
+            (set_local $decimals (i32.div_u
+                (get_local $decimals )
+                (i32.const 10 ) ) )
+            (br 0 ) ) )
+        (set_local $pos (call $-len (get_local $id3 ) ) )
+        (set_local $decimals (i32.const 0 ) )
+        (set_local $digit (f64.abs (call $-f64 (get_local $id ) ) ) )
+        (set_local $digit (f64.sub
+            (get_local $digit )
+            (f64.trunc (get_local $digit ) ) ) )
+        (if
+          (f64.gt
+            (get_local $digit )
+            (f64.const 0.00001 ) )
+          (then
+            (call $-write8
+              (get_local $id3 )
+              (get_local $pos )
+              (i32.const 0x2e ) )
+
+            ;; .
+
             (set_local $pos (i32.add
                 (get_local $pos )
                 (i32.const 1 ) ) )
-            (if
-              (i32.eq
-                (get_local $decimals )
-                (i32.const 0 ) )
-              (then
-                (set_local $digit (f64.abs (call $-f64 (get_local $id ) ) ) )
-                (set_local $digit (f64.sub
-                    (get_local $digit )
-                    (f64.trunc (get_local $digit ) ) ) )
-                (if
-                  (f64.gt
-                    (get_local $digit )
-                    (f64.const 0.00001 ) )
-                  (then
-                    (call $-write8
-                      (get_local $id3 )
-                      (get_local $pos )
-                      (i32.const 0x2e ) )
-
-                    ;; .
-
-                    (set_local $pos (i32.add
-                        (get_local $pos )
-                        (i32.const 1 ) ) ) )
-                  (else (set_local $decimals (i32.const 1024 ) ) ) ) ) )
-            (set_local $digit (f64.sub
-                (get_local $digit )
-                (f64.trunc (get_local $digit ) ) ) )
             (set_local $digit (f64.mul
                 (get_local $digit )
                 (f64.const 10 ) ) )
-            (if
-              (i32.gt_s
-                (get_local $decimals )
-                (i32.const 0 ) )
-              (then (if
+            (block (loop
+                (br_if 1 (i32.ge_s
+                    (get_local $decimals )
+                    (i32.const 16 ) ) )
+                (call $-write8
+                  (get_local $id3 )
+                  (get_local $pos )
+                  (i32.add
+                    (i32.const 0x30 )
+                    (i32.trunc_s/f64 (f64.trunc (get_local $digit ) ) ) ) )
+                (set_local $pos (i32.add
+                    (get_local $pos )
+                    (i32.const 1 ) ) )
+                (set_local $digit (f64.sub
+                    (get_local $digit )
+                    (f64.trunc (get_local $digit ) ) ) )
+                (set_local $digit (f64.mul
+                    (get_local $digit )
+                    (f64.const 10 ) ) )
+                (if
                   (f64.le
                     (get_local $digit )
                     (f64.const 0.00001 ) )
-                  (then (set_local $decimals (i32.const 1024 ) ) ) ) ) )
-            (set_local $decimals (i32.add
-                (get_local $decimals )
-                (i32.const 1 ) ) )
-            (br 0 ) ) ) ) )
+                  (then (set_local $decimals (i32.const 1024 ) ) ) )
+                (set_local $decimals (i32.add
+                    (get_local $decimals )
+                    (i32.const 1 ) ) )
+                (br 0 ) ) ) ) ) ) )
     (if
       (i32.eq
         (get_local $datatype )
@@ -4780,5 +11674,10 @@
     (call $-reftree (get_global $ns2\pos ) )
     (call $-reftree (get_global $ns2\line ) )
     (call $-reftree (get_global $ns2\column ) )
+    (call $-reftree (get_global $ns2\pos_stack ) )
     (call $-reftree (get_global $ns2\sections ) )
+    (call $-reftree (get_global $ns2\wasm ) )
+    (call $-reftree (get_global $ns2\local_names ) )
+    (call $-reftree (get_global $ns2\blocks ) )
+    (call $-reftree (get_global $ns4\opcodes ) )
     (call $-garbagecollect ) ) )
