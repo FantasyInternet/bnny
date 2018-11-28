@@ -6,7 +6,7 @@
   "scripts": {
     "build": "poetry ./index.poem -b ./index.wasm",
     "test": "poetry ./index.poem -t ./test/index.wast -b ./index.wasm && mocha",
-    "watch": "watch \"npm test\" . --wait 10 -d"
+    "watch": "watch \"npm test\" . --wait 16 -d"
   },
   "bin": {
     "bnny": "./cli.js"

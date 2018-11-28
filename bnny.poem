@@ -55,6 +55,7 @@ func reset
     :start = null
     :element = array
     :code = array
+    :data = array
     :name =
       :type = array
       :function = array
@@ -120,6 +121,7 @@ func backstep
   return char
 
 func read_raw_token
+  var hexdigits = "0123456789ABCDEFabcdef"
   var token
   var char = peek_char
   ~ skip whitespace
@@ -140,12 +142,20 @@ func read_raw_token
     token = read_char
     char = read_char
     while char != "\"" && (false == is_eof)
-      binary_write token (size_of token) char
       if char == "\\"
         char = read_char
+        if char == "n"
+          binary_write token (size_of token) "\n"
+        elsif char == "t"
+          binary_write token (size_of token) "\t"
+        elsif (binary_search hexdigits char) != null
+          char += read_char
+          binary_write token (size_of token) (from_hex char)
+        else
+          binary_write token (size_of token) char
+      else
         binary_write token (size_of token) char
       char = read_char
-    ~ binary_write token (size_of token) char
   elsif char == ";"
     token = read_char
     char = peek_char
@@ -385,8 +395,10 @@ func read_module
         read_start true
       elsif token == "elem"
         read_element true
+      elsif token == "data"
+        read_data true
       else
-        ~ return unexpected token "module-level token"
+        return unexpected token "module-level token"
         exit_parens
     else
       return unexpected token "'('"
@@ -704,6 +716,26 @@ func read_element save
     array_push sections:element elem
   return elem
 
+func read_data save
+  var data = object
+  var token = read_token
+  while token
+    if is_number token
+      data:index = token_to_number token
+    elsif is_name token
+      data:index = array_search sections:name:memory token
+    elsif token == "("
+      data:offset = translate_code binary
+    elsif is_string token
+      data:string = binary_slice token 1 (size_of token)
+    else
+      return unexpected token
+    token = read_token
+  exit_parens
+  if save
+    array_push sections:data data
+  return data
+
 
 ~~~ write wasm ~~~
 
@@ -721,6 +753,7 @@ func write_module
   write_start_section
   write_element_section
   write_code_section
+  write_data_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -906,6 +939,22 @@ func write_code_section
     binary_write bin (size_of bin) bodybin
 
   write_varuint wasm 10
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_data_section
+  if (array_length sections:data) == 0
+    return null
+  var bin = binary
+  write_varuint bin (array_length sections:data)
+  for data in sections:data
+    write_varuint bin data:index
+    binary_write bin (size_of bin) data:offset
+    binary_write bin (size_of bin) 0x0b
+    write_varuint bin (size_of data:string)
+    binary_write bin (size_of bin) data:string
+
+  write_varuint wasm 11
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 
