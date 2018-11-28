@@ -88,7 +88,7 @@ func pop_pos
   return array_pop pos_stack
 
 func croak message
-  error = error || message + " at line " + line + ", column " + column + "!"
+  error = error || message + "! (<input>:" + line + ":" + column + ")"
 
 func unexpected actual expected
   var message = "unexpected token '" + actual + "'"

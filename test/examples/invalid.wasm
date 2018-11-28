@@ -1,1 +1,1 @@
-Error: unexpected token 'This', where '(' should be at line 1, column 0!
+Error: unexpected token 'This', where '(' should be! (<input>:1:0)

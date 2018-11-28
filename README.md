@@ -1,6 +1,28 @@
 # bnny
 A [WebAssembly](https://webassembly.org/) assembler written in [Poetry](https://github.com/FantasyInternet/poetry)
 
-_It's not ready yet!_
+Usage
+-----
+    $ npm i -g bnny
+    $ bnny my_program.wast -b my_program.wasm
 
-_I'm still working on it!_
+Usage in Javascript
+-------------------
+
+    const bnny = require("bnny")
+
+    bnny('(module)').then((wasm) => {
+      console.log("Output size:", wasm.byteLength, "bytes")
+    })
+
+Usage in Poetry
+---------------
+
+    include "bnny/bnny.poem" bnny\
+
+    export "init" init
+      var wasm = bnny\assemble "(module)"
+      if wasm
+        var size = size_of wasm
+      else
+        var err = bnny\error

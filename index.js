@@ -1,3 +1,4 @@
+const path = require("path")
 const fs = require("fs")
 const { StringDecoder } = require('string_decoder');
 
@@ -30,7 +31,7 @@ let bufferStack = []
 let input = ""
 let output
 let error
-let bnny = WebAssembly.instantiate(fs.readFileSync("./index.wasm"), imports)
+let bnny = WebAssembly.instantiate(fs.readFileSync(path.join(__dirname, "./index.wasm")), imports)
 bnny.then((result) => {
   bnny = result.instance.exports
 })
@@ -42,10 +43,10 @@ async function assemble(wast, options = {}) {
   if (!bnny.init) await bnny
   input = wast
   bnny.init()
-  if (bnny.memory.buffer.byteLength !== last_mem) {
-    last_mem = bnny.memory.buffer.byteLength
-    console.log("Memory:", last_mem / (1024 * 1024), "MiB")
-  }
+  // if (bnny.memory.buffer.byteLength !== last_mem) {
+  //   last_mem = bnny.memory.buffer.byteLength
+  //   console.log("Memory:", last_mem / (1024 * 1024), "MiB")
+  // }
   if (error) throw new Error(error)
   return output
 }

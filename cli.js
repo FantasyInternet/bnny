@@ -2,7 +2,8 @@
 const
   bnny = require("./index.js"),
   program = require('commander'),
-  fs = require("fs")
+  fs = require("fs"),
+  path = require("path")
 
 program
   .arguments('<file>')
@@ -10,10 +11,12 @@ program
   .action(function (file) {
     bnny(fs.readFileSync(file), program).then((wasm) => {
       if (program.wasm) {
-        fs.writeFileSync(program.wasm, wasm)
+        fs.writeFileSync(program.wasm, new Buffer(wasm))
       } else {
-        console.log("" + Buffer.from(wasm))
+        fs.writeFileSync(file + ".wasm", new Buffer(wasm))
       }
+    }).catch((error) => {
+      throw new Error(error.message.replace("<input>", path.resolve(file)))
     })
   })
   .parse(process.argv)
