@@ -14,6 +14,8 @@
     (set_local $len (i32.sub (get_local $len) (i32.const 1)))
   ))
   (if (i32.eq (i32.load16_u (get_local $pos)) (i32.const 0x7830))(then ;; hex
+    (set_local $pos (i32.add (get_local $pos) (i32.const 2)))
+    (set_local $len (i32.sub (get_local $len) (i32.const 2)))
     (block(loop (br_if 1 (i32.eqz (get_local $len)))
       (set_local $dig (i64.load8_u (get_local $pos)))
       (set_local $num (i64.mul (get_local $num) (i64.const 0x10)))
