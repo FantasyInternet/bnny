@@ -294,6 +294,11 @@ func translate_code bin token
           write_varuint code (array_search sections:name:function num)
         else
           return unexpected num "a function reference"
+      elsif token == "call_indirect"
+        save_pos
+        write_varuint code (read_func_type)
+        write_varuint code 0
+        restore_pos
       elsif (binary_search token "_local") == 3
         var num = read_token
         if is_number num

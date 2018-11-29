@@ -21,7 +21,8 @@
     (i64.const 65536)
     (f32.const 3.5)
     (f64.const 3.5)
-    ;; (call_indirect (i32.const 1) (param f32) (param f32) (param f32) (result i64))
+    (call_indirect (type $myType) (param f32) (param f64) (param i32) (result i64) (i32.const 1))
+    (call_indirect (param f32) (param f64) (param i32) (result i64) (i32.const 1))
   )
 
   (func $test_mem (result i32)
