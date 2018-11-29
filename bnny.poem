@@ -271,6 +271,21 @@ func translate_code bin token
           write_varuint code (array_search blocks num)
         else
           return unexpected num "a relative depth"
+      elsif token == "br_table"
+        var targets = array
+        save_pos
+        var num = read_token
+        while num && ((is_name num) || (is_number num))
+          pop_pos; save_pos
+          if is_name num
+            array_push targets (array_search blocks num)
+          elsif is_number num
+            array_push targets (token_to_number num)
+          num = read_token
+        restore_pos
+        write_varuint code (array_length targets)-1
+        for target in targets
+          write_varuint code target
       elsif token == "call"
         var num = read_token
         if is_number num
