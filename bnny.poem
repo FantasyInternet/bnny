@@ -59,6 +59,7 @@ func reset
     :name =
       :type = array
       :function = array
+      :locals = array
       :global = array
       :memory = array
       :table = array
@@ -344,22 +345,35 @@ func read_names
       if token == "type"
         array_push sections:name:type (read_name)
       elsif token == "import"
-        token = read_token
-        token = read_token
+        read_token
+        read_token
         read_names
       elsif token == "table"
         array_push sections:name:table (read_name)
       elsif token == "memory"
         array_push sections:name:memory (read_name)
       elsif token == "func"
-        array_push sections:name:function (read_name)
+        local_names = array
+        array_push sections:name:locals local_names
+        var name = read_token
+        if is_name name
+          array_push sections:name:function name
+        else
+          array_push sections:name:function null
+        if name == "("
+          backstep
+        read_names
       elsif token == "global"
         array_push sections:name:global (read_name)
+      elsif token == "param"
+        array_push local_names (read_name)
+      elsif token == "local"
+        array_push local_names (read_name)
       else
         ~ return unexpected token "module-level token"
         exit_parens
-    else
-      return unexpected token "'('"
+    ~ else
+    ~   return unexpected token "'('"
     token = read_token
   exit_parens
 
@@ -754,6 +768,7 @@ func write_module
   write_element_section
   write_code_section
   write_data_section
+  write_name_section
 
 func write_string bin str
   write_varuint bin size_of str
@@ -955,6 +970,42 @@ func write_data_section
     binary_write bin (size_of bin) data:string
 
   write_varuint wasm 11
+  write_varuint wasm (size_of bin)
+  binary_write wasm (size_of wasm) bin
+
+func write_name_section
+  if (array_length sections:name) == 0
+    return null
+  var bin = binary
+  write_string bin "name"
+  var total_locals = 0
+  var names = binary
+  var index = 0
+  write_varuint names (array_length sections:name:function)
+  for name in sections:name:function
+    write_varuint names index
+    write_string names (binary_slice name 1 (size_of name))
+    total_locals += array_length sections:name:locals[index]
+    index++
+  write_varuint bin 1
+  write_string bin names
+
+  names = binary
+  write_varuint names (array_length sections:name:locals)
+  var fun = 0
+  for locals in sections:name:locals
+    write_varuint names fun
+    index = 0
+    write_varuint names (array_length locals)
+    for name in locals
+      write_varuint names index
+      write_string names (binary_slice name 1 (size_of name))
+      index++
+    fun++
+  write_varuint bin 2
+  write_string bin names
+
+  write_varuint wasm 0
   write_varuint wasm (size_of bin)
   binary_write wasm (size_of wasm) bin
 

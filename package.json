@@ -1,12 +1,20 @@
 {
   "name": "bnny",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A WebAssembly assembler written in Poetry",
+  "keywords": [
+    "WebAssembly",
+    "wat",
+    "wast",
+    "wasm",
+    "poetry",
+    "assembler"
+  ],
   "main": "index.js",
   "scripts": {
     "build": "poetry ./index.poem -b ./index.wasm",
     "test": "poetry ./index.poem -t ./test/index.wast -b ./index.wasm && mocha",
-    "watch": "watch \"npm test\" . --wait 16 -d"
+    "watch": "watch \"npm test\" . --wait 20 -d"
   },
   "bin": {
     "bnny": "./cli.js"

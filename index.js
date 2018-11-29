@@ -43,10 +43,10 @@ async function assemble(wast, options = {}) {
   if (!bnny.init) await bnny
   input = wast
   bnny.init()
-  // if (bnny.memory.buffer.byteLength !== last_mem) {
-  //   last_mem = bnny.memory.buffer.byteLength
-  //   console.log("Memory:", last_mem / (1024 * 1024), "MiB")
-  // }
+  if (bnny.memory.buffer.byteLength !== last_mem) {
+    last_mem = bnny.memory.buffer.byteLength
+    // console.log("Memory:", last_mem / (1024 * 1024), "MiB")
+  }
   if (error) throw new Error(error)
   return output
 }
