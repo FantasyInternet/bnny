@@ -7,7 +7,15 @@ describe("BnNY", function () {
   describe("assemble", function () {
     const examples = "./test/examples/"
     let files = shuffle(fs.readdirSync(examples))
-    // files = ["invalid.wast", "sum.wast", "cat.wast", "bnny.wast"]
+    // files = [
+    //   "bnny.wast",
+    //   "invalid.wast",
+    //   "sum.wast",
+    //   "sum_.wast",
+    //   "testsnstuff.wast",
+    //   "cat.wast",
+    //   "cat_.wast",
+    // ]
 
     for (const file of files) {
       if (file.includes(".wast")) {

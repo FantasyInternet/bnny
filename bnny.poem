@@ -39,6 +39,9 @@ func assemble wast
     return null
   else
     write_module
+    reset
+    src = null
+    sections = null
     return wasm
 
 func reset
