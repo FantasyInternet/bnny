@@ -203,9 +203,6 @@ func is_number token
   return (binary_search digits char) != null
 
 func token_to_number token
-  if (string_lower (binary_slice token 0 2)) == "0x"
-    return from_hex (binary_slice token 2 1024)
-  else
     return json_decode token
 
 func translate_code bin token
@@ -302,7 +299,7 @@ func translate_code bin token
         write_varuint code (read_func_type)
         write_varuint code 0
         restore_pos
-      elsif (binary_search token "_local") == 3
+      elsif (binary_search token "_local") == 3 || (binary_search token "local.") == 0
         var num = read_token
         if is_number num
           write_varuint code (token_to_number num)
@@ -310,7 +307,7 @@ func translate_code bin token
           write_varuint code (array_search local_names num)
         else
           return unexpected num "a local reference"
-      elsif (binary_search token "_global") == 3
+      elsif (binary_search token "_global") == 3 || (binary_search token "global.") == 0
         var num = read_token
         if is_number num
           write_varuint code (token_to_number num)
@@ -330,7 +327,7 @@ func translate_code bin token
           num = 0
         write_varuint code num
         write_varuint code 0
-      elsif token == "current_memory" || token == "grow_memory"
+      elsif (binary_search token "_memory") > 3 || (binary_search token "memory.") == 0
         write_varuint code 0
       elsif token == "i32.const" || token == "i64.const"
         var num = read_token

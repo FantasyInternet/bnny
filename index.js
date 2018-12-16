@@ -14,6 +14,9 @@ const imports = {
     "log": () => {
       console.log("  🐰\t" + new Buffer(bufferStack.pop()))
     },
+    "logNumber": (num) => {
+      console.log("  🐇\t" + num + "\t0x" + num.toString(16))
+    },
     "getInput": () => {
       let buf = Uint8Array.from(Buffer.from(input)).buffer
       bufferStack.push(buf)

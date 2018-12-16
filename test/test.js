@@ -15,6 +15,7 @@ describe("BnNY", function () {
     //   "testsnstuff.wast",
     //   "cat.wast",
     //   "cat_.wast",
+    // "numbers.wast"
     // ]
 
     for (const file of files) {
