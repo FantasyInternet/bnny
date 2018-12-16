@@ -18,10 +18,15 @@ var opcodes =
   :select = 0x1b  ~select one of two values based on condition
 
   :get_local  = 0x20  ~local_index : varuint32  ~read a local variable or parameter
+  :local.get  = 0x20  ~local_index : varuint32  ~read a local variable or parameter
   :set_local  = 0x21  ~local_index : varuint32  ~write a local variable or parameter
+  :local.set  = 0x21  ~local_index : varuint32  ~write a local variable or parameter
   :tee_local  = 0x22  ~local_index : varuint32  ~write a local variable or parameter and return the same value
+  :local.tee  = 0x22  ~local_index : varuint32  ~write a local variable or parameter and return the same value
   :get_global = 0x23  ~global_index : varuint32 ~read a global variable
+  :global.get = 0x23  ~global_index : varuint32 ~read a global variable
   :set_global = 0x24  ~global_index : varuint32 ~write a global variable
+  :global.set = 0x24  ~global_index : varuint32 ~write a global variable
 
   :i32.load       = 0x28  ~memory_immediate     ~load from memory
   :i64.load       = 0x29  ~memory_immediate     ~load from memory
@@ -47,7 +52,9 @@ var opcodes =
   :i64.store16    = 0x3d  ~memory_immediate     ~store to memory
   :i64.store32    = 0x3e  ~memory_immediate     ~store to memory
   :current_memory = 0x3f  ~reserved : varuint1  ~query the size of memory
+  :memory.size    = 0x3f  ~reserved : varuint1  ~query the size of memory
   :grow_memory    = 0x40  ~reserved : varuint1  ~grow the size of memory
+  :memory.grow    = 0x40  ~reserved : varuint1  ~grow the size of memory
 
   :i32.const  = 0x41  ~value : varint32 ~a constant value interpreted as i32
   :i64.const  = 0x42  ~value : varint64 ~a constant value interpreted as i64
